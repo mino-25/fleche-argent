@@ -19,8 +19,8 @@ function Header() {
           </ul>
         </nav>
         <div className="logo">
-          <img src="" alt="Login" />
-          <h2>Login</h2>
+          <FontAwesomeIcon icon={faUserTie} size="2xl" style={{color: "#ffffff",}} />
+          <h3>Login</h3>
         </div>
       </header>
       <Outlet />

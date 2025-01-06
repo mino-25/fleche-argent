@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100..900&family=Cinzel:wght@400..900&display=swap');
 
-.accueil{
- height: 90vh;
- align-items: center;
-}
 
-.accueil img{
+.accueil{
+    display: flex;
+    flex-direction: column;
+}
+.cover img{
     position: absolute;
     width: 100%;
     z-index: -1;
@@ -13,14 +13,44 @@
     left: 0;
 }
 
-.accueil h2{
+.cover-text{
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.277);
+}
+
+.cover-text h2{
     font-size: 50px;
     color: white;
     font-family: "Cinzel", serif;
 }
 
-.accueil h3{
+.cover-text h3{
     font-size: 20px;
     color: white;
+    font-family: "Cinzel", serif;
+}
+
+
+.presentation{
+    padding: 3%;
+    display: flex;
+    align-items: center ;
+    justify-content: space-between;
+}
+.presentation img{
+    width: 50%;
+    height: 30%;
+}
+.presentation-text{
+    display: flex;
+    width: 45%;
+    flex-direction: column;
+    font-family: "Cinzel", serif;
+}
+.presentation-text h3{
     font-family: "Cinzel", serif;
 }

@@ -7,7 +7,7 @@ header{
     align-items: center;
     padding: 1%;
     color: white;
-    background-color: rgba(0, 0, 0, 0.269);
+    background-color: rgba(0, 0, 0, 0.415);
     font-family: "Cinzel", serif;   
 }
 
@@ -24,8 +24,21 @@ nav ul a{
     text-decoration: none;
     color: white;
     font-size: 19px;
+    font-weight: 500;
 }
 
 header img{
     width: 7%;
+}
+
+.logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.logo h3{
+    font-size: 20px;
 }
