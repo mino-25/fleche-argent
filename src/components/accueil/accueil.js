@@ -1,3 +1,4 @@
+
 import './accueil.css';  
 import Cover from '../assets/hotel.jpg';
 import Room from "../assets/room.jpg";
