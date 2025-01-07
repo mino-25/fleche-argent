@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100..900&family=Cinzel:wght@400..900&display=swap');
 
-
-.accueil{
+.accueil {
     display: flex;
     flex-direction: column;
 }
-.cover img{
+
+.cover img {
     position: absolute;
     width: 100%;
     z-index: -1;
@@ -13,7 +13,7 @@
     left: 0;
 }
 
-.cover-text{
+.cover-text {
     height: 85vh;
     display: flex;
     flex-direction: column;
@@ -22,35 +22,200 @@
     background-color: rgba(0, 0, 0, 0.277);
 }
 
-.cover-text h2{
+.cover-text h2 {
     font-size: 50px;
     color: white;
     font-family: "Cinzel", serif;
 }
 
-.cover-text h3{
+.cover-text h3 {
     font-size: 20px;
     color: white;
     font-family: "Cinzel", serif;
 }
 
-
-.presentation{
+.presentation {
     padding: 3%;
     display: flex;
-    align-items: center ;
+    align-items: center;
     justify-content: space-between;
 }
-.presentation img{
+
+.presentation img {
     width: 50%;
     height: 30%;
 }
-.presentation-text{
+
+.presentation-text {
     display: flex;
     width: 45%;
     flex-direction: column;
     font-family: "Cinzel", serif;
 }
-.presentation-text h3{
+
+/* Pour masquer le menu mobile sur PC */
+@media (min-width: 769px) {
+    .mobile-nav {
+        display: none;
+    }
+}
+
+/* Pour le bouton du menu mobile */
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* Pour le menu responsive mobile */
+.responsive-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+    padding-top: 50px;
+}
+
+.responsive-menu.open {
+    display: flex;
+    transform: translateX(0);
+}
+
+.responsive-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.responsive-menu ul li {
+    margin: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.responsive-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
     font-family: "Cinzel", serif;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.responsive-menu ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ddd;
+}
+
+/* Afficher le bouton sur mobile */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Style pour les téléphones */
+@media (max-width: 768px) {
+    .cover img {
+        width: 100%;
+        height: auto;
+    }
+
+    .cover-text {
+        height: auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .cover-text h2 {
+        font-size: 30px;
+    }
+
+    .cover-text h3 {
+        font-size: 16px;
+    }
+
+    .presentation {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .presentation img {
+        width: 100%;
+        height: auto;
+    }
+
+    .presentation-text {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .presentation-text h2 {
+        font-size: 24px;
+    }
+
+    .presentation-text h3 {
+        font-size: 14px;
+    }
+}
+
+/* Pour la navigation PC */
+.pc-nav {
+    display: none;
+    justify-content: space-around;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+    position: fixed;
+    left: 0;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+/* Afficher la navigation PC quand le menu mobile est ouvert */
+@media (max-width: 768px) {
+    .responsive-menu.open + .pc-nav {
+        display: flex;
+        bottom: 0;
+    }
+}
+
+/* Pour le menu mobile */
+.mobile-nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.mobile-nav span {
+    color: white;
+    font-family: "Cinzel", serif;
+    cursor: pointer;
 }

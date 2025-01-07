@@ -2,7 +2,7 @@ import './accueil.css';
 import { useState } from 'react';
 import Cover from '../assets/hotel.jpg';
 import Room from "../assets/room.jpg";
-import Restaurent from "../assets/restaurent.jpg";
+import Restaurant from "../assets/restaurent.jpg";
 import Massage from "../assets/massage.jpg";
 
 function Accueil() {
@@ -19,12 +19,23 @@ function Accueil() {
                 {menuOpen ? "✖" : "☰"}
             </button>
 
+            {/* Navigation de la version PC */}
+            <div className="pc-nav">
+                <span>ACCUEIL</span>
+                <span>CHAMBRE</span>
+                <span>RESTAURANT</span>
+                <span>LOGIN</span>
+            </div>
+
             {/* Menu Responsive */}
             <nav className={`responsive-menu ${menuOpen ? 'open' : ''}`}>
                 <ul>
+                    <li><a href="#accueil">Accueil</a></li>
                     <li><a href="#chambres">Nos Chambres</a></li>
-                    <li><a href="#restaurent">Notre Restaurant</a></li>
+                    <li><a href="#restaurant">Notre Restaurant</a></li>
                     <li><a href="#massage">Nos Massages</a></li>
+                    <li><a href="#reservation">Réservation</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
 
@@ -45,14 +56,14 @@ function Accueil() {
                     </h3>
                 </div>
             </div>
-            <div id="restaurent" className="presentation restaurent">
+            <div id="restaurant" className="presentation restaurant">
                 <div className="presentation-text">
                     <h2>Notre Restaurant</h2>
                     <h3>
                         Notre restaurant 5 étoiles offre une expérience unique basée sur la cuisine bordelaise.
                     </h3>
                 </div>
-                <img src={Restaurent} alt="Restaurent" />
+                <img src={Restaurant} alt="Restaurent" />
             </div>
             <div id="massage" className="presentation massage">
                 <img src={Massage} alt="Massage" />
@@ -63,6 +74,8 @@ function Accueil() {
                     </h3>
                 </div>
             </div>
+
+
         </div>
     );
 }
