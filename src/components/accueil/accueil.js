@@ -1,7 +1,7 @@
 import './accueil.css';  
 import Cover from '../assets/hotel.jpg';
 import Room from "../assets/room.jpg";
-import Restaurent from "../assets/restaurent.jpg";
+import Restaurant from "../assets/restaurent.jpg";
 import Massage from "../assets/massage.jpg";
 function Accueil(){
     return(
@@ -23,16 +23,16 @@ function Accueil(){
                     </h3>
                 </div>
             </div>
-            <div className="presentation restaurent">
+            <div className="presentation restaurant">
                 <div className="presentation-text">
-                    <h2>Notre Restaurent</h2>
+                    <h2>Notre Restaurant</h2>
                     <h3>
                         Notre restaurent 5 étoiles offre une experience unique basée sur la cuisine de Bordeaux. Nos chefs bordelais mettent 
                         mettent en place différentes préstation pour nos clients d'aborder les plats dans les meilleures condition. 
                     </h3>
                 </div>
                 
-                <img src={Restaurent} alt="Restaurent" />
+                <img src={Restaurant} alt="Restaurant" />
             </div>
             <div className="presentation massage">
                 <img src={Massage} alt="Massage" />

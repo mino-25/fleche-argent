@@ -12,16 +12,18 @@ function Header() {
           <ul>
             <Link to="/">Accueil</Link>
             <Link to="chambre">Chambre</Link>
-            <Link to="restaurent">Restaurent</Link>
+            <Link to="restaurent">Restaurant</Link>
             <Link to="massage">Salon de massage</Link>
             <Link to="reservation">Reservation</Link>
             <Link to="contact">Contact</Link>
           </ul>
         </nav>
-        <div className="logo">
-          <FontAwesomeIcon icon={faUserTie} size="2xl" style={{color: "#ffffff",}} />
-          <h3>Login</h3>
-        </div>
+        <Link to="/connexion">
+          <div className="logo">
+            <FontAwesomeIcon icon={faUserTie} size="2xl" style={{color: "#ffffff",}} />
+            <h3>Login</h3>
+          </div>
+        </Link>
       </header>
       <Outlet />
     </div>

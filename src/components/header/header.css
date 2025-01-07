@@ -11,6 +11,11 @@ header{
     font-family: "Cinzel", serif;   
 }
 
+header a{
+    text-decoration: none;
+    color: white    ;
+}
+
 nav{
     width: 65%;
 }
