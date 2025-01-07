@@ -1,4 +1,5 @@
 import "./chambre.css";
+import chambre from "../assets/chambre-cover.jpg";
 import standard from "../assets/standard.jpg"
 import confort from "../assets/confort.jpg"
 import standing from "../assets/standing.jpg"
@@ -31,10 +32,11 @@ function Chambre() {
 
   return (
     <div className="chambres">
-      <header className="chambres-header">
+      <div className="chambres-header">
+        <img src={chambre} alt="Chambre" />
         <h1>Nos Chambres</h1>
         <p>Découvrez nos différentes catégories de chambres</p>
-      </header>
+      </div>
       <div className="room-container">
         {rooms.map((room, index) => (
           <div className="room-card" key={index}>
