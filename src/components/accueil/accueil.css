@@ -63,15 +63,15 @@
 /* Pour le bouton du menu mobile */
 .menu-toggle {
     display: none;
-    position: absolute;
-    top: 20px;
-    left: 20px;
+    position: fixed; /* Fixé pour rester visible lors du défilement */
+    top: 20px;       /* Distance par rapport au haut de l'écran */
+    left: 20px;      /* Distance par rapport au bord gauche */
     font-size: 30px;
     background: none;
     border: none;
     color: white;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 1001; /* Toujours devant le contenu */
 }
 
 /* Pour le menu responsive mobile */

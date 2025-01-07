@@ -1,5 +1,6 @@
 import './accueil.css';  
 import { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import du Link pour la navigation
 import Cover from '../assets/hotel.jpg';
 import Room from "../assets/room.jpg";
 import Restaurant from "../assets/restaurent.jpg";
@@ -21,21 +22,21 @@ function Accueil() {
 
             {/* Navigation de la version PC */}
             <div className="pc-nav">
-                <span>ACCUEIL</span>
-                <span>CHAMBRE</span>
-                <span>RESTAURANT</span>
-                <span>LOGIN</span>
+                <Link to="/">ACCUEIL</Link>
+                <Link to="/chambres">CHAMBRE</Link>
+                <Link to="/restaurant">RESTAURANT</Link>
+                <Link to="/login">LOGIN</Link>
             </div>
 
             {/* Menu Responsive */}
             <nav className={`responsive-menu ${menuOpen ? 'open' : ''}`}>
                 <ul>
-                    <li><a href="#accueil">Accueil</a></li>
-                    <li><a href="#chambres">Nos Chambres</a></li>
-                    <li><a href="#restaurant">Notre Restaurant</a></li>
-                    <li><a href="#massage">Nos Massages</a></li>
-                    <li><a href="#reservation">Réservation</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><Link to="/" onClick={toggleMenu}>Accueil</Link></li>
+                    <li><Link to="/chambres" onClick={toggleMenu}>Nos Chambres</Link></li>
+                    <li><Link to="/restaurant" onClick={toggleMenu}>Notre Restaurant</Link></li>
+                    <li><Link to="/massage" onClick={toggleMenu}>Nos Massages</Link></li>
+                    <li><Link to="/reservation" onClick={toggleMenu}>Réservation</Link></li>
+                    <li><Link to="/contact" onClick={toggleMenu}>Contact</Link></li>
                 </ul>
             </nav>
 
@@ -74,8 +75,6 @@ function Accueil() {
                     </h3>
                 </div>
             </div>
-
-
         </div>
     );
 }
