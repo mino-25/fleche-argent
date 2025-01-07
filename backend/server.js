@@ -1,6 +1,6 @@
 const express = require('express');
-require('dotenv').config();
-const mysql = require('mysql2');
+require('dotenv')
+const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
