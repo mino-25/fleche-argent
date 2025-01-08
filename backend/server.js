@@ -38,24 +38,52 @@ app.get('/utilisateurs', (req, res) => {
 
 // Route pour l'inscription
 app.post('/api/inscription', (req, res) => {
-    const { pseudo, email, mot_de_passe, adresse_postale, telephone } = req.body;
-  
-    // Vérification des données reçues
-    if (!pseudo || !email || !mot_de_passe) {
-      return res.status(400).json({ message: 'Veuillez remplir tous les champs obligatoires.' });
+  const { pseudo, email, mot_de_passe, adresse_postale, telephone } = req.body;
+
+  if (!pseudo || !email || !mot_de_passe) {
+    return res.status(400).json({ message: 'Veuillez remplir tous les champs obligatoires.' });
+  }
+
+  const sql = 'INSERT INTO utilisateurs (pseudo, email, mot_de_passe, adresse_postale, telephone) VALUES (?, ?, ?, ?, ?)';
+  db.query(sql, [pseudo, email, mot_de_passe, adresse_postale, telephone], (err, result) => {
+    if (err) {
+      console.error('Erreur lors de l\'insertion :', err);
+      return res.status(500).json({ message: 'Erreur du serveur.' });
     }
-  
-    // Insertion dans la base de données
-    const sql = 'INSERT INTO utilisateurs (pseudo, email, mot_de_passe, adresse_postale, telephone) VALUES (?, ?, ?, ?, ?)';
-    db.query(sql, [pseudo, email, mot_de_passe, adresse_postale, telephone], (err, result) => {
-      if (err) {
-        console.error('Erreur lors de l\'insertion :', err);
-        return res.status(500).json({ message: 'Erreur du serveur.' });
-      }
-      res.status(201).json({ message: 'Inscription réussie.', userId: result.insertId });
-    });
+    res.status(201).json({ message: 'Inscription réussie.', userId: result.insertId });
   });
-  
+});
+
+// Route pour la connexion
+app.post('/api/connexion', (req, res) => {
+  const { email, mot_de_passe } = req.body;
+
+  if (!email || !mot_de_passe) {
+    return res.status(400).json({ message: 'Veuillez remplir tous les champs.' });
+  }
+
+  // Vérification des informations utilisateur
+  const sql = 'SELECT * FROM utilisateurs WHERE email = ?';
+  db.query(sql, [email], (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la requête :', err);
+      return res.status(500).json({ message: 'Erreur du serveur.' });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'Utilisateur non trouvé.' });
+    }
+
+    const user = results[0];
+
+    // Comparaison des mots de passe
+    if (user.mot_de_passe !== mot_de_passe) {
+      return res.status(401).json({ message: 'Mot de passe incorrect.' });
+    }
+
+    res.status(200).json({ message: 'Connexion réussie.', user });
+  });
+});
 
 // Démarrer le serveur
 const PORT = 5000;

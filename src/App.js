@@ -11,8 +11,7 @@ import Auth from './components/auth/Auth';
 function App() {
   return (
     <div className="App">
-      {/* Placer le Header ici pour qu'il soit visible sur toutes les pages */}
-      <Header />
+
       
       {/* Routes pour la navigation */}
       <Routes>
@@ -25,9 +24,6 @@ function App() {
           </Route>
         </Route>
       </Routes>
-      
-      {/* Placer le Footer ici pour qu'il soit visible sur toutes les pages */}
-      <Footer />
     </div>
   );
 }
