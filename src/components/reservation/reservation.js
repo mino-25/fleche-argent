@@ -1,13 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function ReservationForm({ utilisateurId }) {
+function ReservationForm() {
   const [formData, setFormData] = useState({
     chambre_id: '',
     date_debut: '',
     date_fin: '',
   });
+  const [utilisateurId, setUtilisateurId] = useState(null); // Stocke l'ID utilisateur
   const [message, setMessage] = useState('');
+
+  // Récupérer l'ID utilisateur depuis le localStorage
+  useEffect(() => {
+    const utilisateur = JSON.parse(localStorage.getItem('utilisateur'));
+    if (utilisateur && utilisateur.id) {
+      setUtilisateurId(utilisateur.id);
+    } else {
+      setMessage('Erreur : utilisateur non connecté.');
+    }
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -18,6 +29,11 @@ function ReservationForm({ utilisateurId }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!utilisateurId) {
+      setMessage('Impossible d\'envoyer la réservation : utilisateur non identifié.');
+      return;
+    }
 
     axios.post('http://localhost:5000/api/reservation', {
       ...formData,

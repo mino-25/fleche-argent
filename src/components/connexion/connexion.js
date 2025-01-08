@@ -19,12 +19,21 @@ function Connexion() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     // Envoyer les données au backend
     axios.post('http://localhost:5000/api/connexion', formData)
       .then((response) => {
         setMessage(response.data.message);
-        console.log('Utilisateur connecté :', response.data.user);
+  
+        // Vérifier si l'utilisateur est renvoyé
+        if (response.data.user) {
+          // Enregistrer les informations de l'utilisateur dans le stockage local
+          localStorage.setItem('utilisateur', JSON.stringify(response.data.user));
+          console.log('Utilisateur connecté et stocké :', response.data.user);
+  
+          // Rediriger ou mettre à jour l'état de l'application si nécessaire
+          // Exemple : navigate('/reservation');
+        }
       })
       .catch((error) => {
         if (error.response) {
@@ -34,6 +43,7 @@ function Connexion() {
         }
       });
   };
+  
 
   return (
     <div className="connexion-container">

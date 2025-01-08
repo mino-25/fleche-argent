@@ -85,6 +85,51 @@ app.post('/api/connexion', (req, res) => {
   });
 });
 
+
+
+app.post('/api/reservation', (req, res) => {
+  const { utilisateur_id, chambre_id, date_debut, date_fin } = req.body;
+
+  if (!utilisateur_id || !chambre_id || !date_debut || !date_fin) {
+    return res.status(400).json({ message: 'Tous les champs sont obligatoires.' });
+  }
+
+  // Vérifier si la chambre est disponible
+  const checkAvailabilitySql = `
+    SELECT * FROM reservations
+    WHERE chambre_id = ?
+    AND (date_debut <= ? AND date_fin >= ?)
+  `;
+
+  db.query(checkAvailabilitySql, [chambre_id, date_fin, date_debut], (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la vérification de la disponibilité :', err);
+      return res.status(500).json({ message: 'Erreur du serveur.' });
+    }
+
+    if (results.length > 0) {
+      return res.status(400).json({ message: 'La chambre n\'est pas disponible pour ces dates.' });
+    }
+
+    // Ajouter la réservation
+    const reservationSql = `
+      INSERT INTO reservations (utilisateur_id, chambre_id, date_debut, date_fin)
+      VALUES (?, ?, ?, ?)
+    `;
+    db.query(reservationSql, [utilisateur_id, chambre_id, date_debut, date_fin], (err, result) => {
+      if (err) {
+        console.error('Erreur lors de l\'ajout de la réservation :', err);
+        return res.status(500).json({ message: 'Erreur du serveur.' });
+      }
+
+      res.status(201).json({ message: 'Réservation réussie.', reservationId: result.insertId });
+    });
+  });
+});
+
+
+
+
 // Démarrer le serveur
 const PORT = 5000;
 app.listen(PORT, () => {
