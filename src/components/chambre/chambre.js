@@ -1,5 +1,5 @@
 import "./chambre.css";
-import chambre from "../assets/chambre-cover.jpg";
+import chambre from "../assets/chambre-cover.jpeg";
 import standard from "../assets/standard.jpg"
 import confort from "../assets/confort.jpg"
 import standing from "../assets/standing.jpg"

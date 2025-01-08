@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100..900&family=Cinzel:wght@400..900&display=swap');
 
-
-header{
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,39 +10,105 @@ header{
     font-family: "Cinzel", serif;   
 }
 
-header a{
+header a {
     text-decoration: none;
-    color: white    ;
+    color: white;
 }
 
-nav{
+nav {
     width: 65%;
-}
-
-nav ul{
     display: flex;
     justify-content: space-between;
-
 }
-nav ul a{
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul a {
     text-decoration: none;
     color: white;
     font-size: 19px;
     font-weight: 500;
+    padding: 10px;
 }
 
-header img{
+/* Logo visible uniquement sur PC */
+header img {
     width: 7%;
+    display: block; /* Visible uniquement sur PC */
 }
 
-.logo{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
+
+/* Cacher la navbar sur mobile */
+@media (max-width: 768px) {
+    /* Masquer la barre de navigation classique sur mobile */
+    nav {
+        display: none;
+    }
+
+    /* Masquer le logo sur mobile dans l'en-tête */
+    header img {
+        display: none;
+    }
+
+    /* Afficher le logo mobile dans le menu */
+    .logo {
+        display: block; /* Afficher le logo dans le menu */
+        margin-top: 10px;
+        width: 60%; /* Ajuster la taille du logo sur mobile */
+        margin-left: 250%;
+        
+    }
+
+    .logo h3{
+        display: flex;
+        justify-content: center;
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    nav ul a {
+        margin: 10px 0;
+        padding: 15px;
+        font-size: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Ajouter le bouton hamburger */
+    .hamburger {
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+        color: white;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
+    /* Affichage du menu hamburger */
+    .menu-open {
+        display: block;
+    }
+
+    .nav-active ul {
+        display: flex;
+    }
 }
 
-.logo h3{
-    font-size: 20px;
-}

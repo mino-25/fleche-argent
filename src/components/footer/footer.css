@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100..900&family=Cinzel:wght@400..900&display=swap');
-
-
+ 
+ 
 footer{
     display: flex;
     align-items: center;
@@ -26,7 +26,7 @@ footer{
 .footer-logo img{
     width: 40%;
 }
-
+ 
 .footer-info{
     display: flex;
     flex-direction: column;

@@ -2,14 +2,20 @@ import './App.css';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Accueil from './components/accueil/accueil';
+import Inscription from './components/inscription/inscription';
 import Chambre from './components/chambre/chambre';
 import Resto from './components/resto/resto';
 import Spa from './components/spa/spa';
+import ReservationForm from './components/reservation/reservation';
 import { Routes, Route } from 'react-router-dom';
+import Auth from './components/auth/Auth';
 
 function App() {
   return (
     <div className="App">
+
+      
+      {/* Routes pour la navigation */}
       <Routes>
         <Route path="/" element={<Header />}>
           <Route path='/' element={<Footer />}>
@@ -18,6 +24,10 @@ function App() {
             <Route path="/resto" element={<Resto />} />
             <Route path="/spa" element={<Spa />} />
             <Route path="*" element={<h1>Page non trouvée</h1>} />
+            <Route path='/inscription' element={<Inscription/>}/>
+            <Route path='/auth' element={<Auth/>}/>
+            <Route path='/reservation' element={<ReservationForm/>}/>
+          
           </Route>
         </Route>
       </Routes>

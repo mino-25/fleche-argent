@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Assurez-vous que le package 'react-router-dom' est installé.
 import "./resto.css";
 import coverImage from "../assets/restaurent.jpg";
 import ambianceImage from "../assets/plat.jpg";
@@ -7,6 +9,8 @@ import dish2 from "../assets/saumon.jpg";
 import dish3 from "../assets/tartelette.jpg";
 
 function Resto() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // État pour gérer l'ouverture du menu
+
   const menu = [
     {
       name: "Filet de Bœuf Rossini",
@@ -24,9 +28,9 @@ function Resto() {
       image: dish3,
     },
   ];
-
   return (
     <div className="restaurant">
+
       {/* Section Header */}
       <div className="restaurant-header">
         <img
