@@ -71,3 +71,10 @@
         display: block;
     }
 }
+
+/* Cacher le bouton sur les écrans PC (au-dessus de 768px) */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+}
