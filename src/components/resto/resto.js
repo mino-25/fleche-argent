@@ -30,27 +30,27 @@ function Resto() {
   ];
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen); // Toggle l'état du menu mobile
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <div className="restaurant">
-      {/* Bouton de menu mobile */}
+    <div className="inscription-container">
+      {/* Bouton hamburger pour le menu responsive */}
       <button className="menu-toggle" onClick={toggleMenu}>
-        ☰
+        {isMenuOpen ? "✖" : "☰"}
       </button>
 
-      {/* Menu mobile */}
-      <div className={`mobile-menu ${isMenuOpen ? "open" : ""}`}>
+      {/* Menu responsive */}
+      <nav className={`responsive-menu ${isMenuOpen ? 'open' : ''}`}>
         <ul>
-          <li><Link to="/">Accueil</Link></li>
-          <li><Link to="/chambre">Chambre</Link></li>
-          <li><Link to="/resto">Restaurant</Link></li>
-          <li><Link to="/massage">Salon de massage</Link></li>
-          <li><Link to="/reservation">Réservation</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/chambre">Nos Chambres</a></li>
+          <li><a href="/resto">Notre Restaurant</a></li>
+          <li><a href="/massage">Nos Massages</a></li>
+          <li><a href="/reservation">Réservation</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
-      </div>
+      </nav>
 
       {/* Section Header */}
       <div className="restaurant-header">

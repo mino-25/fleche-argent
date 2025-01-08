@@ -9,7 +9,7 @@ function Footer() {
         <div className="footer-link">
           <Link to="/">Accueil</Link>
           <Link to="/chambre">Chambre</Link>
-          <Link to="/restaurant">Restaurant</Link>
+          <Link to="/resto">Restaurant</Link>
           <Link to="/massage">Massage</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/mentions">Mentions Légales</Link>

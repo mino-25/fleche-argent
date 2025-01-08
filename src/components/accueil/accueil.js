@@ -34,7 +34,7 @@ function Accueil() {
                 <ul>
                     <li><Link to="/" onClick={toggleMenu}>Accueil</Link></li>
                     <li><Link to="/chambres" onClick={toggleMenu}>Nos Chambres</Link></li>
-                    <li><Link to="/restaurant" onClick={toggleMenu}>Notre Restaurant</Link></li>
+                    <li><Link to="/resto" onClick={toggleMenu}>Notre Restaurant</Link></li>
                     <li><Link to="/massage" onClick={toggleMenu}>Nos Massages</Link></li>
                     <li><Link to="/reservation" onClick={toggleMenu}>Réservation</Link></li>
                     <li><Link to="/contact" onClick={toggleMenu}>Contact</Link></li>
