@@ -43,10 +43,6 @@ header img {
     display: block; /* Visible uniquement sur PC */
 }
 
-/* Logo mobile (caché sur PC) */
-.logo-mobile {
-    display: none; /* Cacher sur PC */
-}
 
 /* Cacher la navbar sur mobile */
 @media (max-width: 768px) {
@@ -63,10 +59,15 @@ header img {
     /* Afficher le logo mobile dans le menu */
     .logo {
         display: block; /* Afficher le logo dans le menu */
-        text-align: center;
         margin-top: 10px;
         width: 60%; /* Ajuster la taille du logo sur mobile */
         margin-left: 250%;
+        
+    }
+
+    .logo h3{
+        display: flex;
+        justify-content: center;
     }
 
     header {
