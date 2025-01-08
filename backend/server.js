@@ -12,7 +12,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '', // Vide par défaut sur XAMPP
-  database: 'login', // Remplacez par le nom de votre base de données
+  database: 'projetweb', // Remplacez par le nom de votre base de données
 });
 
 // Connexion à la base de données

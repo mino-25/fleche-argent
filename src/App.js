@@ -6,6 +6,7 @@ import Inscription from './components/inscription/inscription';
 import Chambre from './components/chambre/chambre';
 import Resto from './components/resto/resto';
 import { Routes, Route } from 'react-router-dom';
+import Auth from './components/auth/Auth';
 
 function App() {
   return (
@@ -15,11 +16,14 @@ function App() {
       
       {/* Routes pour la navigation */}
       <Routes>
-        <Route path="/" element={<Accueil />} />
-        <Route path="/inscription" element={<Inscription />} />
-        <Route path="/chambre" element={<Chambre />} />
-        <Route path="/resto" element={<Resto />} />
-        <Route path="*" element={<h1>Page non trouvée</h1>} />
+        <Route path="/" element={<Header />}>
+          <Route path='/' element={<Footer />}>
+            <Route index element={<Accueil />} />
+            <Route path='/inscription' element={<Inscription/>}/>
+            <Route path='/auth' element={<Auth/>}/>
+          
+          </Route>
+        </Route>
       </Routes>
       
       {/* Placer le Footer ici pour qu'il soit visible sur toutes les pages */}
