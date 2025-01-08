@@ -93,5 +93,9 @@
     font-size: 1rem;
     color: #ddd; 
     margin: 0;
+    display: flex;
+    text-align: center;
+    
+    
   }
   

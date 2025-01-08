@@ -1,10 +1,10 @@
 import "./resto.css";
-import coverImage from "../assets/resto.jpg";
+import coverImage from "../assets/restaurent.jpg";
 import ambianceImage from "../assets/plat.jpg";
-import chefImage from "../assets/confort.jpg";
-import dish1 from "../assets/standing.jpg";
-import dish2 from "../assets/suite.jpg";
-import dish3 from "../assets/confort.jpg";
+import chefImage from "../assets/chef.jpg";
+import dish1 from "../assets/filet.jpg";
+import dish2 from "../assets/saumon.jpg";
+import dish3 from "../assets/tartelette.jpg";
 
 function Resto() {
   const menu = [
@@ -64,17 +64,17 @@ function Resto() {
         </div>
 
         <div className="chef">
+        <h2>Rencontrez notre Chef</h2>
           <img
             src={chefImage}
             alt="Notre chef"
             className="chef-image"
           />
-          <h2>Rencontrez notre Chef</h2>
+          <h2>Adolf MUSSOLINI </h2>
           <p>
-            Le Chef [Nom du Chef] est passionné par la gastronomie. Avec une
-            expérience de plus de 15 ans dans des restaurants étoilés, il
-            propose une cuisine à la fois créative et respectueuse des
-            traditions culinaires françaises.
+          Le Chef Adolf est passionné par la gastronomie. Avec une expérience de plus de 15 ans dans des restaurants étoilés, il propose une cuisine à la fois créative et respectueuse des traditions culinaires françaises.
+Son approche met en valeur des produits de saison, soigneusement sélectionnés auprès de producteurs locaux. Il accorde une attention particulière à la présentation de ses plats, alliant esthétisme et saveurs uniques.
+En perpétuelle quête de perfection, il s’inspire aussi bien des recettes traditionnelles que des techniques modernes pour offrir une expérience culinaire inoubliable à ses convives.
           </p>
         </div>
       </section>
