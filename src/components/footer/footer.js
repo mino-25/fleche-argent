@@ -10,7 +10,7 @@ function Footer() {
           <Link to="/">Accueil</Link>
           <Link to="/chambre">Chambre</Link>
           <Link to="/resto">Restaurant</Link>
-          <Link to="/massage">Massage</Link>
+          <Link to="/spa">Massage</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/mentions">Mentions Légales</Link>
           <Link to="/conditions">Conditions de Vente</Link>

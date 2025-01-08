@@ -56,7 +56,7 @@ function Chambre() {
             <a href="/resto">Notre Restaurant</a>
           </li>
           <li>
-            <a href="/massage">Nos Massages</a>
+            <a href="/spa">Nos Massages</a>
           </li>
           <li>
             <a href="/reservation">Réservation</a>

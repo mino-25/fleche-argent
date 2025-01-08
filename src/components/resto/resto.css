@@ -185,7 +185,10 @@
   }
 
   .menu-item-image {
-    height: 120px; /* Réduction de la hauteur de l'image du plat */
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 10px;
   }
 
   .menu-item h3 {

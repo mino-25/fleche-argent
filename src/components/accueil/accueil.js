@@ -33,7 +33,7 @@ function Accueil() {
             <nav className={`responsive-menu ${menuOpen ? 'open' : ''}`}>
                 <ul>
                     <li><Link to="/" onClick={toggleMenu}>Accueil</Link></li>
-                    <li><Link to="/chambres" onClick={toggleMenu}>Nos Chambres</Link></li>
+                    <li><Link to="/chambre" onClick={toggleMenu}>Nos Chambres</Link></li>
                     <li><Link to="/resto" onClick={toggleMenu}>Notre Restaurant</Link></li>
                     <li><Link to="/massage" onClick={toggleMenu}>Nos Massages</Link></li>
                     <li><Link to="/reservation" onClick={toggleMenu}>Réservation</Link></li>

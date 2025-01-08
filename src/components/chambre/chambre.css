@@ -1,124 +1,152 @@
-/* Importation des polices */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100..900&family=Cinzel:wght@400..900&display=swap');
+ 
+ 
 .chambres {
-  font-family: "Cinzel", serif;
-}
-
-/* En-tête */
-.chambres-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 85vh;
-  text-align: center;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-}
-
-.chambres-header img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: -1;
-}
-
-.header-text {
-  padding: 0 20px;
-}
-
-.header-text h1 {
-  font-size: 3rem;
-  margin: 0;
-}
-
-.header-text p {
-  font-size: 1.5rem;
-  margin: 10px 0 0;
-}
-
-/* Section des chambres */
-.rooms-section {
-  padding: 30px 20px;
-}
-
-.room-card {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  text-align: center;
-  padding: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.room-card:hover {
-  transform: scale(1.05);
-}
-
-.room-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.room-type {
-  font-size: 1.5rem;
-  margin: 10px 0;
-}
-
-.room-description {
-  color: #555;
-  font-size: 1rem;
-  margin: 0;
-}
+    font-family: "Cinzel", serif;  
+    padding: 20px;
+  }
+  
+  .chambres-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80vh;
+    margin-bottom: 5%;
+    text-align: center;
+  }
+  .chambres-header img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  .chambres-header h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+  }
+  
+  .chambres-header p {
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+  }
+  
+  .room-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+ 
+  .room-card {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .room-card:hover {
+    transform: scale(1.05);
+  }
+  
+ 
+  .room-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+ 
+  .room-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+ 
+  .room-card:hover .room-info {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+ 
+  .room-type {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+ 
+  .room-description {
+    font-size: 1rem;
+    color: #ddd;
+    margin: 0;
+    display: flex;
+    text-align: center;
+    
+    
+  }
+  
 
 /* Adaptation mobile */
 @media (max-width: 768px) {
+  /* Header */
   .chambres-header {
     height: 15vh; /* Réduction de la hauteur de l'en-tête */
   }
 
   .chambres-header img {
-    height: 38vh; /* Réduction de la hauteur de l'image de couverture */
+    height: 38vh; /* Ajustement de l'image de couverture */
+    object-fit: cover; /* Évite les déformations */
+    width: 100%; /* Assure que l'image occupe toute la largeur */
   }
 
-  .header-text h1 {
-    font-size: 150%; /* Réduction de la taille du titre */
+  .chambres-header h1 {
+    font-size: 140%; /* Taille du titre adaptée */
+    text-align: center;
   }
 
-  .header-text p {
-    font-size: 1.2rem; /* Réduction de la taille du sous-titre */
+  .chambres-header p {
+    font-size: 100%; /* Taille du sous-titre adaptée */
+    text-align: center;
   }
 
+  /* Section des chambres */
   .rooms-section {
-    padding: 30px 10px; /* Réduction de l'espacement autour de la section */
-  }
-
-  .rooms-container {
-    gap: 35px; /* Réduction de l'écart entre les cartes */
+    padding: 30px 10px; /* Réduction des marges pour plus de compacité */
   }
 
   .room-card {
     padding: 10px; /* Réduction du padding dans les cartes */
+    margin-top: 50px;
+    border-radius: 8px; /* Arrondi des coins */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Légère ombre pour effet visuel */
   }
-.room-image {
-  width: 100%;
-  height: auto; /* Maintient le ratio de l'image */
-  object-fit: cover; /* Couvre tout l'espace disponible sans distorsion */
-  margin-bottom: 10px;
-}
+
 
   .room-type {
-    font-size: 1.3rem; /* Réduction de la taille du titre du type de chambre */
+    font-size: 1.3rem; /* Taille adaptée pour le titre */
+    color: #fff; /* Texte clair pour contraste */
+    text-align: center; /* Centrage du texte */
+    margin-bottom: 5px;
   }
 
   .room-description {
-    font-size: 0.9rem; /* Réduction de la taille du texte descriptif */
+    font-size: 1rem; /* Taille réduite pour le texte descriptif */
+    color: #ddd; /* Couleur plus douce pour la lecture */
+    text-align: center; /* Centré pour uniformité */
+    margin: 0; /* Élimine les marges inutiles */
   }
 }
