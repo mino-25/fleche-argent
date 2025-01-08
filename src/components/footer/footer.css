@@ -32,6 +32,9 @@ footer {
     align-items: center;
     width: 50%;
 }
+.footer-logo img{
+    width: 40%;
+}
 
 .footer-link a {
     text-decoration: none;

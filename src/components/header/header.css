@@ -6,7 +6,7 @@ header {
     align-items: center;
     padding: 1%;
     color: white;
-    background-color: rgba(0, 0, 0, 0.415);
+    background-color: rgba(0, 0, 0, 0.161);
     font-family: "Cinzel", serif;
     position: relative;
 }
@@ -61,11 +61,12 @@ header img {
     }
 
     /* Afficher le logo mobile dans le menu */
-    .logo-mobile {
+    .logo {
         display: block; /* Afficher le logo dans le menu */
         text-align: center;
         margin-top: 10px;
         width: 60%; /* Ajuster la taille du logo sur mobile */
+        margin-left: 250%;
     }
 
     header {

@@ -53,7 +53,7 @@ function Resto() {
       </div>
 
       {/* Section Header */}
-      <header className="restaurant-header">
+      <div className="restaurant-header">
         <img
           src={coverImage}
           alt="Restaurant de l'hôtel"
@@ -63,7 +63,7 @@ function Resto() {
           <h1>Bienvenue au Restaurant de l'Hôtel</h1>
           <p>Découvrez une expérience gastronomique unique et raffinée.</p>
         </div>
-      </header>
+      </div>
 
       {/* Section Présentation */}
       <section className="about-restaurant">
