@@ -13,7 +13,7 @@ function Header() {
             <Link to="/">Accueil</Link>
             <Link to="chambre">Chambre</Link>
             <Link to="resto">Restaurant</Link>
-            <Link to="massage">Salon de massage</Link>
+            <Link to="spa">Salon de massage</Link>
             <Link to="reservation">Reservation</Link>
             <Link to="contact">Contact</Link>
           </ul>
