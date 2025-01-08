@@ -6,9 +6,8 @@ header {
     align-items: center;
     padding: 1%;
     color: white;
-    background-color: rgba(0, 0, 0, 0.161);
-    font-family: "Cinzel", serif;
-    position: relative;
+    background-color: rgba(0, 0, 0, 0.252);
+    font-family: "Cinzel", serif;   
 }
 
 header a {

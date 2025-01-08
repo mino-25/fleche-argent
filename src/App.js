@@ -5,6 +5,7 @@ import Accueil from './components/accueil/accueil';
 import Inscription from './components/inscription/inscription';
 import Chambre from './components/chambre/chambre';
 import Resto from './components/resto/resto';
+import ReservationForm from './components/reservation/reservation';
 import { Routes, Route } from 'react-router-dom';
 import Auth from './components/auth/Auth';
 
@@ -19,7 +20,10 @@ function App() {
           <Route path='/' element={<Footer />}>
             <Route index element={<Accueil />} />
             <Route path='/inscription' element={<Inscription/>}/>
+            <Route path='/resto' element={<Resto/>}/>
+            <Route path='/chambre' element={<Chambre/>}/>
             <Route path='/auth' element={<Auth/>}/>
+            <Route path='/reservation' element={<ReservationForm/>}/>
           
           </Route>
         </Route>
