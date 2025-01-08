@@ -18,7 +18,7 @@ function Header() {
             <Link to="contact">Contact</Link>
           </ul>
         </nav>
-        <Link to="/connexion">
+        <Link to="/inscription">
           <div className="logo">
             <FontAwesomeIcon icon={faUserTie} size="2xl" style={{color: "#ffffff",}} />
             <h3>Login</h3>
