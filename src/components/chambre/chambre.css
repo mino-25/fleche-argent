@@ -34,65 +34,35 @@
   }
   
   .room-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .room-card {
-    position: relative;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-  }
-  
-  .room-card:hover {
-    transform: scale(1.05); 
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 5%;
   }
   
 
   .room-image {
-    width: 100%;
+    width: 30vw;
     height: 100%;
-    object-fit: cover;
   }
   
-
-  .room-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
-    color: white;
-    padding: 20px;
-    text-align: center;
-    opacity: 0; 
-    visibility: hidden; 
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
-  
-
-  .room-card:hover .room-info {
-    opacity: 1;
-    visibility: visible; 
-  }
   
 
   .room-type {
     font-size: 1.5rem;
-    color: #fff; 
+    color: #000000; 
     margin-bottom: 10px;
   }
   
  
   .room-description {
     font-size: 1rem;
-    color: #ddd; 
+    color: #000000; 
     margin: 0;
     display: flex;
     text-align: center;

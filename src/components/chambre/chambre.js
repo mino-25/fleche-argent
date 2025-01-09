@@ -11,21 +11,25 @@ function Chambre() {
     {
       type: "Classique",
       description: "Chambres standard avec tout le confort essentiel.",
+      numero: "1",
       image: standard,
     },
     {
       type: "Confort",
       description: "Chambres confortables pour un séjour relaxant.",
+      numero: "2",
       image: confort,
     },
     {
       type: "Standing",
       description: "Chambres deluxe avec des équipements haut de gamme.",
+      numero: "3",
       image: standing,
     },
     {
       type: "Suite",
       description: "Suites luxueuses pour une expérience inoubliable.",
+      numero: "4",
       image: suite,
     },
   ];
@@ -48,6 +52,7 @@ function Chambre() {
             <div className="room-info">
               <h2 className="room-type">{room.type}</h2>
               <p className="room-description">{room.description}</p>
+              <p className="room-numero"> Numéro de chambre : {room.numero}</p>
             </div>
           </div>
         ))}
