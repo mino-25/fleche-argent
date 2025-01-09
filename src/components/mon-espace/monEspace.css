@@ -53,7 +53,15 @@ border-radius: 4px;
 font-size: 16px;
 cursor: pointer;
 }
-  
+.mon-espace button {
+    background-color: #a5a5a5;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    }
 .mon-espace section button:hover {
-background-color: #d9b43c;
+background-color: #d93f3c;
 }
