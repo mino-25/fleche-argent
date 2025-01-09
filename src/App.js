@@ -12,6 +12,7 @@ import { Routes, Route } from 'react-router-dom';
 import Auth from './components/auth/Auth';
 import Admin from './components/admin/admin';
 import MonEspace from './components/mon-espace/monEspace';
+import Avis from './components/avis/avis';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path='/admin' element={<Admin/>}/>
             <Route path="/mon-espace" element={<MonEspace />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/avis" element={<Avis />} /> 
           
           </Route>
         </Route>

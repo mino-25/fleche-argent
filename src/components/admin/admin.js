@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Delete from "../assets/delete.png"
+import Delete from "../assets/delete.png";
 
 function Admin() {
   const [utilisateurs, setUtilisateurs] = useState([]);
   const [reservations, setReservations] = useState([]);
+  const [messages, setMessages] = useState([]);
 
   // Récupérer les utilisateurs
   useEffect(() => {
@@ -22,12 +23,20 @@ function Admin() {
       .catch((error) => console.error("Erreur lors de la récupération des réservations :", error));
   }, []);
 
+  // Récupérer les messages de contact
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/messages")
+      .then((response) => setMessages(response.data))
+      .catch((error) => console.error("Erreur lors de la récupération des messages :", error));
+  }, []);
+
   const handleDeleteUser = (id) => {
     axios
       .delete(`http://localhost:5000/utilisateurs/${id}`)
       .then((response) => {
         console.log(response.data.message);
-        setUtilisateurs((prevUsers) => prevUsers.filter((user) => user.id !== id));  // Correction ici
+        setUtilisateurs((prevUsers) => prevUsers.filter((user) => user.id !== id));
       })
       .catch((error) => {
         console.error("Erreur lors de la suppression de l'utilisateur :", error);
@@ -45,6 +54,18 @@ function Admin() {
       })
       .catch((error) => {
         console.error("Erreur lors de la suppression de la réservation :", error);
+      });
+  };
+
+  const handleDeleteMessage = (id) => {
+    axios
+      .delete(`http://localhost:5000/messages/${id}`)
+      .then((response) => {
+        console.log(response.data.message);
+        setMessages((prevMessages) => prevMessages.filter((msg) => msg.id !== id));
+      })
+      .catch((error) => {
+        console.error("Erreur lors de la suppression du message :", error);
       });
   };
 
@@ -76,10 +97,10 @@ function Admin() {
                 <td>{user.telephone || "Non spécifié"}</td>
                 <td>
                   <img
-                    src={Delete} // Remplace par le chemin de ton icône
+                    src={Delete}
                     alt="Supprimer"
                     style={{ cursor: "pointer", width: "20px", height: "20px" }}
-                    onClick={() => handleDeleteUser(user.id)} // Correction ici
+                    onClick={() => handleDeleteUser(user.id)}
                   />
                 </td>
               </tr>
@@ -114,10 +135,52 @@ function Admin() {
                 <td>{res.date_fin}</td>
                 <td>
                   <img
-                    src={Delete} // Remplace par le chemin de ton icône
+                    src={Delete}
                     alt="Supprimer"
                     style={{ cursor: "pointer", width: "20px", height: "20px" }}
                     onClick={() => handleDeleteReservation(res.id)}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+
+      {/* Liste des messages */}
+      <section>
+        <h2>Messages de contact</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Email</th>
+              <th>Pays</th>
+              <th>Sujet</th>
+              <th>Message</th>
+              <th>Date d'envoi</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {messages.map((msg) => (
+              <tr key={msg.id}>
+                <td>{msg.id}</td>
+                <td>{msg.nom}</td>
+                <td>{msg.prenom}</td>
+                <td>{msg.email}</td>
+                <td>{msg.pays || "Non spécifié"}</td>
+                <td>{msg.sujet}</td>
+                <td>{msg.message}</td>
+                <td>{msg.date_envoie}</td>
+                <td>
+                  <img
+                    src={Delete}
+                    alt="Supprimer"
+                    style={{ cursor: "pointer", width: "20px", height: "20px" }}
+                    onClick={() => handleDeleteMessage(msg.id)}
                   />
                 </td>
               </tr>

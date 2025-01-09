@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './inscription.css';
 
 function Inscription() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     pseudo: '',
     email: '',
@@ -12,7 +14,6 @@ function Inscription() {
   });
 
   const [message, setMessage] = useState('');
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Etat pour le menu responsive
 
   const handleChange = (e) => {
     setFormData({
@@ -29,6 +30,18 @@ function Inscription() {
       .post('http://localhost:5000/api/inscription', formData)
       .then((response) => {
         setMessage(response.data.message);
+        console.log('Réponse du backend:', response.data); // Debugging
+
+        // Si l'inscription est réussie, enregistrer l'utilisateur et rediriger
+        if (response.data.user) {
+          localStorage.setItem('utilisateur', JSON.stringify(response.data.user));
+          console.log('Utilisateur inscrit et stocké :', response.data.user);
+
+          // Redirection vers la page d'accueil
+          navigate('/');
+        }
+
+        // Réinitialiser le formulaire
         setFormData({
           pseudo: '',
           email: '',
@@ -46,52 +59,58 @@ function Inscription() {
       });
   };
 
-  // Fonction pour afficher/masquer le menu
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
     <div className="inscription-container">
-      {/* Bouton hamburger pour le menu responsive */}
-      <button className="menu-toggle" onClick={toggleMenu}>
-        {isMenuOpen ? "✖" : "☰"}
-      </button>
-
-      {/* Menu responsive */}
-      <nav className={`responsive-menu ${isMenuOpen ? 'open' : ''}`}>
-        <ul>
-          <li><a href="/">Accueil</a></li>
-          <li><a href="/chambres">Nos Chambres</a></li>
-          <li><a href="/restaurant">Notre Restaurant</a></li>
-          <li><a href="/massage">Nos Massages</a></li>
-          <li><a href="/reservation">Réservation</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </nav>
-
       <h1>Inscription</h1>
       {message && <p>{message}</p>}
       <form onSubmit={handleSubmit}>
         <div>
           <label>Pseudo :</label>
-          <input type="text" name="pseudo" value={formData.pseudo} onChange={handleChange} required />
+          <input
+            type="text"
+            name="pseudo"
+            value={formData.pseudo}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div>
           <label>Email :</label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div>
           <label>Mot de passe :</label>
-          <input type="password" name="mot_de_passe" value={formData.mot_de_passe} onChange={handleChange} required />
+          <input
+            type="password"
+            name="mot_de_passe"
+            value={formData.mot_de_passe}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div>
           <label>Adresse Postale :</label>
-          <input type="text" name="adresse_postale" value={formData.adresse_postale} onChange={handleChange} />
+          <input
+            type="text"
+            name="adresse_postale"
+            value={formData.adresse_postale}
+            onChange={handleChange}
+          />
         </div>
         <div>
           <label>Téléphone :</label>
-          <input type="text" name="telephone" value={formData.telephone} onChange={handleChange} />
+          <input
+            type="text"
+            name="telephone"
+            value={formData.telephone}
+            onChange={handleChange}
+          />
         </div>
         <button type="submit">S'inscrire</button>
       </form>

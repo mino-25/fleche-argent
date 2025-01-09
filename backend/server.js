@@ -84,23 +84,59 @@ app.post('/api/connexion', (req, res) => {
   });
 });
 
-// Route pour gérer les messages de contact
 app.post('/api/contact', (req, res) => {
   const { nom, prenom, entreprise, email, pays, sujet, message } = req.body;
 
+  // Étape 1 : Log des données reçues
+  console.log('Données reçues :', req.body);
+
   if (!nom || !prenom || !email || !sujet || !message) {
+    console.log('Champs obligatoires manquants');
     return res.status(400).json({ message: 'Veuillez remplir tous les champs obligatoires.' });
   }
 
   const sql = 'INSERT INTO contacts (nom, prenom, entreprise, email, pays, sujet, message, date_envoie) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())';
+
+  // Étape 2 : Log avant l'exécution de la requête SQL
+  console.log('Requête SQL :', sql);
+
   db.query(sql, [nom, prenom, entreprise, email, pays, sujet, message], (err, result) => {
     if (err) {
-      console.error('Erreur lors de l\'insertion :', err);
+      console.error('Erreur lors de l\'insertion dans la base de données :', err);
       return res.status(500).json({ message: 'Erreur du serveur.' });
     }
+
+    // Étape 3 : Log après l'insertion réussie
+    console.log('Message inséré avec succès, ID :', result.insertId);
     res.status(201).json({ message: 'Message envoyé avec succès.' });
   });
 });
+
+// Route pour récupérer tous les messages de contact
+app.get('/messages', (req, res) => {
+  const sql = 'SELECT * FROM contacts ORDER BY date_envoie DESC';
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des messages :', err);
+      return res.status(500).json({ message: 'Erreur du serveur.' });
+    }
+    res.json(results);
+  });
+});
+
+// Route pour supprimer un message
+app.delete('/messages/:id', (req, res) => {
+  const { id } = req.params;
+  const sql = 'DELETE FROM contacts WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      console.error('Erreur lors de la suppression du message :', err);
+      return res.status(500).json({ message: 'Erreur du serveur.' });
+    }
+    res.json({ message: 'Message supprimé avec succès.' });
+  });
+});
+
 
 
 
@@ -219,6 +255,29 @@ app.put('/utilisateurs/:id', (req, res) => {
   });
 });
 
+// Route pour récupérer tous les avis
+app.get('/avis', (req, res) => {
+  db.query('SELECT * FROM avis ORDER BY date_creation DESC', (err, results) => {
+    if (err) {
+      res.status(500).json({ error: 'Erreur de récupération des avis' });
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+// Route pour ajouter un nouvel avis
+app.post('/avis', (req, res) => {
+  const { nom, avis } = req.body;
+  const query = 'INSERT INTO avis (nom, avis) VALUES (?, ?)';
+  db.query(query, [nom, avis], (err, results) => {
+    if (err) {
+      res.status(500).json({ error: 'Erreur lors de l\'envoi de l\'avis' });
+    } else {
+      res.status(201).json({ id: results.insertId, nom, avis });
+    }
+  });
+});
 
 
 
