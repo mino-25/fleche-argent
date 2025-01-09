@@ -12,7 +12,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '', // Vide par défaut sur XAMPP
-  database: 'projetweb', // Remplacez par le nom de votre base de données
+  database: 'login', // Remplacez par le nom de votre base de données
 });
 
 // Connexion à la base de données
@@ -62,7 +62,6 @@ app.post('/api/connexion', (req, res) => {
     return res.status(400).json({ message: 'Veuillez remplir tous les champs.' });
   }
 
-  // Vérification des informations utilisateur
   const sql = 'SELECT * FROM utilisateurs WHERE email = ?';
   db.query(sql, [email], (err, results) => {
     if (err) {
@@ -76,12 +75,30 @@ app.post('/api/connexion', (req, res) => {
 
     const user = results[0];
 
-    // Comparaison des mots de passe
+    // Comparaison directe des mots de passe
     if (user.mot_de_passe !== mot_de_passe) {
       return res.status(401).json({ message: 'Mot de passe incorrect.' });
     }
 
     res.status(200).json({ message: 'Connexion réussie.', user });
+  });
+});
+
+// Route pour gérer les messages de contact
+app.post('/api/contact', (req, res) => {
+  const { nom, prenom, entreprise, email, pays, sujet, message } = req.body;
+
+  if (!nom || !prenom || !email || !sujet || !message) {
+    return res.status(400).json({ message: 'Veuillez remplir tous les champs obligatoires.' });
+  }
+
+  const sql = 'INSERT INTO contacts (nom, prenom, entreprise, email, pays, sujet, message, date_envoie) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())';
+  db.query(sql, [nom, prenom, entreprise, email, pays, sujet, message], (err, result) => {
+    if (err) {
+      console.error('Erreur lors de l\'insertion :', err);
+      return res.status(500).json({ message: 'Erreur du serveur.' });
+    }
+    res.status(201).json({ message: 'Message envoyé avec succès.' });
   });
 });
 
