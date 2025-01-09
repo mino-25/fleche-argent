@@ -5,6 +5,10 @@
     flex-direction: column;
 }
 
+.mobile-nav {
+    display: none;
+}
+
 .cover img {
     position: absolute;
     width: 100%;
@@ -53,12 +57,6 @@
     font-family: "Cinzel", serif;
 }
 
-/* Pour masquer le menu mobile sur PC */
-@media (min-width: 769px) {
-    .mobile-nav {
-        display: none;
-    }
-}
 
 /* Pour le bouton du menu mobile */
 .menu-toggle {

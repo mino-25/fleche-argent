@@ -3,16 +3,16 @@
  
 .chambres {
     font-family: "Cinzel", serif;  
-    padding: 20px;
   }
   
   .chambres-header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 80vh;
+    height: 87vh;
     margin-bottom: 5%;
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.249);
   }
   .chambres-header img{
     position: absolute;

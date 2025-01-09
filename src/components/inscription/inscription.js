@@ -12,7 +12,6 @@ function Inscription() {
   });
 
   const [message, setMessage] = useState('');
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Etat pour le menu responsive
 
   const handleChange = (e) => {
     setFormData({
@@ -46,30 +45,8 @@ function Inscription() {
       });
   };
 
-  // Fonction pour afficher/masquer le menu
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
     <div className="inscription-container">
-      {/* Bouton hamburger pour le menu responsive */}
-      <button className="menu-toggle" onClick={toggleMenu}>
-        {isMenuOpen ? "✖" : "☰"}
-      </button>
-
-      {/* Menu responsive */}
-      <nav className={`responsive-menu ${isMenuOpen ? 'open' : ''}`}>
-        <ul>
-          <li><a href="/">Accueil</a></li>
-          <li><a href="/chambres">Nos Chambres</a></li>
-          <li><a href="/restaurant">Notre Restaurant</a></li>
-          <li><a href="/massage">Nos Massages</a></li>
-          <li><a href="/reservation">Réservation</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </nav>
-
       <h1>Inscription</h1>
       {message && <p>{message}</p>}
       <form onSubmit={handleSubmit}>

@@ -1,6 +1,4 @@
-
 import './accueil.css';  
-import { useState } from 'react';
 import { Link } from 'react-router-dom'; // Import du Link pour la navigation
 import Cover from '../assets/hotel.jpg';
 import Room from "../assets/room.jpg";
@@ -8,19 +6,8 @@ import Restaurant from "../assets/restaurent.jpg";
 import Massage from "../assets/massage.jpg";
 
 function Accueil() {
-    const [menuOpen, setMenuOpen] = useState(false);
-
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
-
     return (
         <div className="accueil">
-            {/* Bouton Hamburger */}
-            <button className="menu-toggle" onClick={toggleMenu}>
-                {menuOpen ? "✖" : "☰"}
-            </button>
-
             {/* Navigation de la version PC */}
             <div className="pc-nav">
                 <Link to="/">ACCUEIL</Link>
@@ -28,18 +15,6 @@ function Accueil() {
                 <Link to="/restaurant">RESTAURANT</Link>
                 <Link to="/login">LOGIN</Link>
             </div>
-
-            {/* Menu Responsive */}
-            <nav className={`responsive-menu ${menuOpen ? 'open' : ''}`}>
-                <ul>
-                    <li><Link to="/" onClick={toggleMenu}>Accueil</Link></li>
-                    <li><Link to="/chambre" onClick={toggleMenu}>Nos Chambres</Link></li>
-                    <li><Link to="/resto" onClick={toggleMenu}>Notre Restaurant</Link></li>
-                    <li><Link to="/massage" onClick={toggleMenu}>Nos Massages</Link></li>
-                    <li><Link to="/reservation" onClick={toggleMenu}>Réservation</Link></li>
-                    <li><Link to="/contact" onClick={toggleMenu}>Contact</Link></li>
-                </ul>
-            </nav>
 
             {/* Contenu principal */}
             <div className="cover">

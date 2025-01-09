@@ -1,5 +1,5 @@
 {
-  "name": "felche",
+  "name": "fleche",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,13 +9,16 @@
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
     "cra-template": "1.2.0",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
     "mysql": "^2.18.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.1",
     "react-scripts": "5.0.1",
-    "web-vitals": "^4.2.4"
+    "web-vitals": "^4.2.4",
+    "yarn": "^1.22.22"
   },
   "scripts": {
     "start": "react-scripts start",

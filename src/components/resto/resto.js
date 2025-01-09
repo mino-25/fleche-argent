@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom"; // Assurez-vous que le package 'react-router-dom' est installé.
 import "./resto.css";
 import coverImage from "../assets/restaurent.jpg";
@@ -9,8 +9,6 @@ import dish2 from "../assets/saumon.jpg";
 import dish3 from "../assets/tartelette.jpg";
 
 function Resto() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // État pour gérer l'ouverture du menu
-
   const menu = [
     {
       name: "Filet de Bœuf Rossini",
@@ -29,29 +27,8 @@ function Resto() {
     },
   ];
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
     <div className="inscription-container">
-      {/* Bouton hamburger pour le menu responsive */}
-      <button className="menu-toggle" onClick={toggleMenu}>
-        {isMenuOpen ? "✖" : "☰"}
-      </button>
-
-      {/* Menu responsive */}
-      <nav className={`responsive-menu ${isMenuOpen ? 'open' : ''}`}>
-        <ul>
-          <li><a href="/">Accueil</a></li>
-          <li><a href="/chambre">Nos Chambres</a></li>
-          <li><a href="/resto">Notre Restaurant</a></li>
-          <li><a href="/spa">Nos Massages</a></li>
-          <li><a href="/reservation">Réservation</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </nav>
-
       {/* Section Header */}
       <div className="restaurant-header">
         <img
@@ -89,7 +66,7 @@ function Resto() {
         </div>
 
         <div className="chef">
-        <h2>Rencontrez notre Chef</h2>
+          <h2>Rencontrez notre Chef</h2>
           <img
             src={chefImage}
             alt="Notre chef"
@@ -97,9 +74,9 @@ function Resto() {
           />
           <h2>Adolf MUSSOLINI </h2>
           <p>
-          Le Chef Adolf est passionné par la gastronomie. Avec une expérience de plus de 15 ans dans des restaurants étoilés, il propose une cuisine à la fois créative et respectueuse des traditions culinaires françaises.
-Son approche met en valeur des produits de saison, soigneusement sélectionnés auprès de producteurs locaux. Il accorde une attention particulière à la présentation de ses plats, alliant esthétisme et saveurs uniques.
-En perpétuelle quête de perfection, il s’inspire aussi bien des recettes traditionnelles que des techniques modernes pour offrir une expérience culinaire inoubliable à ses convives.
+            Le Chef Adolf est passionné par la gastronomie. Avec une expérience de plus de 15 ans dans des restaurants étoilés, il propose une cuisine à la fois créative et respectueuse des traditions culinaires françaises.
+            Son approche met en valeur des produits de saison, soigneusement sélectionnés auprès de producteurs locaux. Il accorde une attention particulière à la présentation de ses plats, alliant esthétisme et saveurs uniques.
+            En perpétuelle quête de perfection, il s’inspire aussi bien des recettes traditionnelles que des techniques modernes pour offrir une expérience culinaire inoubliable à ses convives.
           </p>
         </div>
       </section>

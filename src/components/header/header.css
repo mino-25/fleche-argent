@@ -43,8 +43,40 @@ header img {
     display: block; /* Visible uniquement sur PC */
 }
 
+/* Menu mobile */
+.responsive-menu {
+    display: none; /* Masqué par défaut */
+}
 
-/* Cacher la navbar sur mobile */
+.responsive-menu.open {
+    display: block; /* Affiché lorsque 'open' est activé */
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.responsive-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.responsive-menu ul a {
+    padding: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Masquer la barre de navigation classique sur mobile */
 @media (max-width: 768px) {
     /* Masquer la barre de navigation classique sur mobile */
     nav {
@@ -62,10 +94,9 @@ header img {
         margin-top: 10px;
         width: 60%; /* Ajuster la taille du logo sur mobile */
         margin-left: 250%;
-        
     }
 
-    .logo h3{
+    .logo h3 {
         display: flex;
         justify-content: center;
     }
@@ -103,13 +134,32 @@ header img {
         right: 15px;
     }
 
-    /* Affichage du menu hamburger */
+    /* Style du menu lorsque l'état "menu-open" est activé */
     .menu-open {
         display: block;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(0);
+        transition: transform 0.3s ease-in-out;
     }
 
-    .nav-active ul {
+    .menu-open ul {
         display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-open ul a {
+        padding: 20px;
+        font-size: 24px;
+        text-align: center;
     }
 }
-

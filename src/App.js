@@ -6,26 +6,31 @@ import Inscription from './components/inscription/inscription';
 import Chambre from './components/chambre/chambre';
 import Resto from './components/resto/resto';
 import Spa from './components/spa/spa';
+import ReservationForm from './components/reservation/reservation';
 import { Routes, Route } from 'react-router-dom';
+import Auth from './components/auth/Auth';
 
 function App() {
   return (
     <div className="App">
-      {/* Header visible sur toutes les pages */}
-      <Header />
 
-      {/* Définition des routes */}
+      
+      {/* Routes pour la navigation */}
       <Routes>
-        <Route path="/" element={<Accueil />} />
-        <Route path="/inscription" element={<Inscription />} />
-        <Route path="/chambre" element={<Chambre />} />
-        <Route path="/resto" element={<Resto />} />
-        <Route path="/spa" element={<Spa />} />
-        <Route path="*" element={<h1>Page non trouvée</h1>} />
+        <Route path="/" element={<Header />}>
+          <Route path='/' element={<Footer />}>
+            <Route index element={<Accueil />} />
+            <Route path="/chambre" element={<Chambre />} />
+            <Route path="/resto" element={<Resto />} />
+            <Route path="/spa" element={<Spa />} />
+            <Route path="*" element={<h1>Page non trouvée</h1>} />
+            <Route path='/inscription' element={<Inscription/>}/>
+            <Route path='/auth' element={<Auth/>}/>
+            <Route path='/reservation' element={<ReservationForm/>}/>
+          
+          </Route>
+        </Route>
       </Routes>
-
-      {/* Footer visible sur toutes les pages */}
-      <Footer />
     </div>
   );
 }

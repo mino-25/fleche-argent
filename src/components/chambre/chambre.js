@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./chambre.css";
 import chambre from "../assets/chambre-cover.jpg";
 import standard from "../assets/standard.jpg";
@@ -7,8 +7,6 @@ import standing from "../assets/standing.jpg";
 import suite from "../assets/suite.jpg";
 
 function Chambre() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // État pour le menu responsive
-
   const rooms = [
     {
       type: "Classique",
@@ -32,41 +30,8 @@ function Chambre() {
     },
   ];
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
     <div className="chambre-container">
-      {/* Bouton hamburger pour le menu responsive */}
-      <button className="menu-toggle" onClick={toggleMenu}>
-        {isMenuOpen ? "✖" : "☰"}
-      </button>
-
-      {/* Menu responsive */}
-      <nav className={`responsive-menu ${isMenuOpen ? "open" : ""}`}>
-        <ul>
-          <li>
-            <a href="/">Accueil</a>
-          </li>
-          <li>
-            <a href="/chambre">Nos Chambres</a>
-          </li>
-          <li>
-            <a href="/resto">Notre Restaurant</a>
-          </li>
-          <li>
-            <a href="/spa">Nos Massages</a>
-          </li>
-          <li>
-            <a href="/reservation">Réservation</a>
-          </li>
-          <li>
-            <a href="/contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
-
       {/* Section des chambres */}
       <div className="chambres">
         <div className="chambres-header">

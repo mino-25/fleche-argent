@@ -2,7 +2,7 @@
 
 /* Pour le bouton du menu mobile */
 .menu-toggle {
-    display: block;
+    display: none;
     position: fixed;
     top: 20px;
     left: 20px;
@@ -65,16 +65,3 @@
     color: #ddd;
 }
 
-/* Afficher le bouton sur mobile */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-}
-
-/* Cacher le bouton sur les écrans PC (au-dessus de 768px) */
-@media (min-width: 769px) {
-    .menu-toggle {
-        display: none;
-    }
-}
