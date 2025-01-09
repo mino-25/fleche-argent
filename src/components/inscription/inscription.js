@@ -26,36 +26,27 @@ function Inscription() {
     e.preventDefault();
 
     // Envoyer les données au backend
-    axios
-      .post('http://localhost:5000/api/inscription', formData)
+    axios.post('http://localhost:5000/api/inscription', formData)
       .then((response) => {
         setMessage(response.data.message);
-        console.log('Réponse du backend:', response.data); // Debugging
 
-        // Si l'inscription est réussie, enregistrer l'utilisateur et rediriger
+        // Vérifier si l'utilisateur est renvoyé
         if (response.data.user) {
+          // Enregistrer les informations de l'utilisateur dans le stockage local
           localStorage.setItem('utilisateur', JSON.stringify(response.data.user));
           console.log('Utilisateur inscrit et stocké :', response.data.user);
 
           // Redirection vers la page d'accueil
           navigate('/');
         }
-
-        // Réinitialiser le formulaire
-        setFormData({
-          pseudo: '',
-          email: '',
-          mot_de_passe: '',
-          adresse_postale: '',
-          telephone: '',
-        });
       })
       .catch((error) => {
         if (error.response) {
           setMessage(error.response.data.message);
         } else {
-          setMessage('Vos informations sont déjà existantes');
+          setMessage('Erreur de connexion au serveur.');
         }
+        console.error('Erreur:', error);
       });
   };
 

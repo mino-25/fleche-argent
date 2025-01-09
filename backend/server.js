@@ -50,9 +50,22 @@ app.post('/api/inscription', (req, res) => {
       console.error('Erreur lors de l\'insertion :', err);
       return res.status(500).json({ message: 'Erreur du serveur.' });
     }
-    res.status(201).json({ message: 'Inscription réussie.', userId: result.insertId });
+
+    // Récupérer les informations de l'utilisateur inscrit
+    const userSql = 'SELECT * FROM utilisateurs WHERE id = ?';
+    db.query(userSql, [result.insertId], (err, userResult) => {
+      if (err) {
+        console.error('Erreur lors de la récupération de l\'utilisateur inscrit :', err);
+        return res.status(500).json({ message: 'Erreur du serveur.' });
+      }
+
+      // Renvoyer les informations de l'utilisateur inscrit dans la réponse
+      const user = userResult[0];
+      res.status(201).json({ message: 'Inscription réussie.', user });
+    });
   });
 });
+
 
 // Route pour la connexion
 app.post('/api/connexion', (req, res) => {
