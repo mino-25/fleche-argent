@@ -20,6 +20,7 @@ function Header() {
             <Link to="spa">Salon de massage</Link>
             <Link to="reservation">Reservation</Link>
             <Link to="contact">Contact</Link>
+            <Link to="/avis">Avis</Link>
             
             {/* Afficher le lien Admin uniquement si l'utilisateur est admin */}
             {utilisateur && utilisateur.pseudo === "admin" && (

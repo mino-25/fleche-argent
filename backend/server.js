@@ -202,8 +202,29 @@ app.put('/utilisateurs/:id', (req, res) => {
   });
 });
 
+// Route pour récupérer tous les avis
+app.get('/avis', (req, res) => {
+  db.query('SELECT * FROM avis ORDER BY date_creation DESC', (err, results) => {
+    if (err) {
+      res.status(500).json({ error: 'Erreur de récupération des avis' });
+    } else {
+      res.json(results);
+    }
+  });
+});
 
-
+// Route pour ajouter un nouvel avis
+app.post('/avis', (req, res) => {
+  const { nom, avis } = req.body;
+  const query = 'INSERT INTO avis (nom, avis) VALUES (?, ?)';
+  db.query(query, [nom, avis], (err, results) => {
+    if (err) {
+      res.status(500).json({ error: 'Erreur lors de l\'envoi de l\'avis' });
+    } else {
+      res.status(201).json({ id: results.insertId, nom, avis });
+    }
+  });
+});
 
 // Démarrer le serveur
 const PORT = 5000;
