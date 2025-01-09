@@ -5,6 +5,7 @@ import Accueil from './components/accueil/accueil';
 import Inscription from './components/inscription/inscription';
 import Chambre from './components/chambre/chambre';
 import Resto from './components/resto/resto';
+import Contact from './components/contact/contact';
 import Spa from './components/spa/spa';
 import ReservationForm from './components/reservation/reservation';
 import { Routes, Route } from 'react-router-dom';
@@ -16,9 +17,7 @@ import Avis from './components/avis/avis';
 function App() {
   return (
     <div className="App">
-
       
-      {/* Routes pour la navigation */}
       <Routes>
         <Route path="/" element={<Header />}>
           <Route path='/' element={<Footer />}>
@@ -32,6 +31,7 @@ function App() {
             <Route path='/reservation' element={<ReservationForm/>}/>
             <Route path='/admin' element={<Admin/>}/>
             <Route path="/mon-espace" element={<MonEspace />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/avis" element={<Avis />} /> 
           
           </Route>
