@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
 import axios from 'axios';
 
 
 function Connexion() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     mot_de_passe: ''
@@ -33,6 +36,7 @@ function Connexion() {
   
           // Rediriger ou mettre à jour l'état de l'application si nécessaire
           // Exemple : navigate('/reservation');
+          navigate('/');
         }
       })
       .catch((error) => {

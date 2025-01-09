@@ -127,6 +127,81 @@ app.post('/api/reservation', (req, res) => {
   });
 });
 
+// Route pour récupérer les réservations
+app.get('/reservations', (req, res) => {
+  const sql = `
+    SELECT r.id, r.date_debut, r.date_fin, r.chambre_id, u.pseudo, u.email
+    FROM reservations r
+    JOIN utilisateurs u ON r.utilisateur_id = u.id
+  `;
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des réservations :', err);
+      return res.status(500).json({ message: 'Erreur du serveur.' });
+    }
+    res.json(results);
+  });
+});
+
+app.delete('/reservations/:id', (req, res) => {
+  const { id } = req.params;
+  const sql = 'DELETE FROM reservations WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      console.error('Erreur lors de la suppression de la réservation :', err);
+      return res.status(500).json({ message: 'Erreur du serveur.' });
+    }
+    res.json({ message: 'Réservation supprimée avec succès.' });
+  });
+});
+
+app.delete('/utilisateurs/:id', (req, res) => {
+  const { id } = req.params;
+  const sql = 'DELETE FROM utilisateurs WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      console.error('Erreur lors de la suppression de l\'utilisateur :', err);
+      return res.status(500).json({ message: 'Erreur du serveur.' });
+    }
+    res.json({ message: 'Utilisateur supprimé avec succès.' });
+  });
+});
+
+
+// Route pour récupérer les réservations d'un utilisateur
+app.get('/reservations/:utilisateurId', (req, res) => {
+  const utilisateurId = req.params.utilisateurId;
+  const sql = 'SELECT * FROM reservations WHERE utilisateur_id = ?';
+
+  db.query(sql, [utilisateurId], (err, results) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    res.json(results);
+  });
+});
+
+
+// Route pour mettre à jour les informations de l'utilisateur
+app.put('/utilisateurs/:id', (req, res) => {
+  const { id } = req.params;
+  const { pseudo, email, adresse_postale, telephone } = req.body;
+
+  const sql = `
+    UPDATE utilisateurs
+    SET pseudo = ?, email = ?, adresse_postale = ?, telephone = ?
+    WHERE id = ?
+  `;
+
+  db.query(sql, [pseudo, email, adresse_postale, telephone, id], (err, result) => {
+    if (err) {
+      console.error('Erreur lors de la mise à jour des informations :', err);
+      return res.status(500).json({ message: 'Erreur du serveur.' });
+    }
+    res.json({ message: 'Informations mises à jour avec succès.' });
+  });
+});
+
 
 
 
