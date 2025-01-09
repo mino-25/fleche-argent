@@ -47,12 +47,16 @@
   
 
   .room-image {
-    width: 30vw;
+    width: 40vw;
     height: 100%;
   }
   
   
-
+.room-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
   .room-type {
     font-size: 1.5rem;
     color: #000000; 

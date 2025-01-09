@@ -1,7 +1,7 @@
 import "./chambre.css";
 import chambre from "../assets/chambre-cover.jpeg";
 import standard from "../assets/standard.jpg"
-import confort from "../assets/confort.jpg"
+import confort from "../assets/chambre-cover.jpeg"
 import standing from "../assets/standing.jpg"
 import suite from "../assets/suite.jpg"
 
