@@ -60,3 +60,7 @@
     font-size: 16px;
     cursor: pointer;
   }
+
+  .reservation-cover button:hover {
+    background-color: #d9b43c;
+  }

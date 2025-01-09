@@ -5,6 +5,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1%;
+    height: 15vh;
     color: white;
     background-color: rgba(0, 0, 0, 0.252);
     font-family: "Cinzel", serif;   
