@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import MonEspaceCover from '../assets/mon-espace.jpg';
+import './monEspace.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -72,6 +74,7 @@ function MonEspace() {
 
   return (
     <div className="mon-espace">
+      <img src={MonEspaceCover} alt="Mon Espace Cover" />
       <h1>Mon Espace</h1>
       <p>Bienvenue, {utilisateur ? utilisateur.pseudo : 'Invité'} !</p>
 

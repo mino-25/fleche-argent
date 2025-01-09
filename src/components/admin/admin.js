@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import './admin.css'
 import axios from "axios";
 import Delete from "../assets/delete.png";
+import AdminCover from "../assets/admin-cover.jpg";
 
 function Admin() {
   const [utilisateurs, setUtilisateurs] = useState([]);
@@ -71,6 +73,7 @@ function Admin() {
 
   return (
     <div className="admin-page">
+      <img src={AdminCover} alt=""  id="admin-cover"/>
       <h1>Page Admin</h1>
       
       {/* Liste des utilisateurs */}

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './contact.css';
+import ContactCover from '../assets/contact-cover.jpg';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -45,9 +47,11 @@ function Contact() {
   };
 
   return (
-    <div>
+    <div className="contact">
+      <img src={ContactCover} alt="" />
       <h1>Contact</h1>
       {message && <p>{message}</p>}
+    <div className='contact-form'>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Nom :</label>
@@ -79,6 +83,7 @@ function Contact() {
         </div>
         <button type="submit">Envoyer</button>
       </form>
+    </div>
     </div>
   );
 }

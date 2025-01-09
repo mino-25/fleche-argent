@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './avis.css'
+import AvisCover from '../assets/avis-cover.jpg'
 
 function Avis() {
   const [nom, setNom] = useState('');
@@ -52,33 +54,36 @@ function Avis() {
 
   return (
     <div className="avis">
+      <img src={AvisCover} alt="" />
       <h1>Page des Avis</h1>
 
       {/* Formulaire d'ajout d'un avis */}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="nom">Nom</label>
-          <input
-            type="text"
-            id="nom"
-            name="nom"
-            value={nom}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="avis">Avis</label>
-          <textarea
-            id="avis"
-            name="avis"
-            value={avis}
-            onChange={handleChange}
-            required
-          ></textarea>
-        </div>
-        <button type="submit">Envoyer</button>
-      </form>
+      <div className="avis-form">
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="nom">Nom : </label>
+            <input
+              type="text"
+              id="nom"
+              name="nom"
+              value={nom}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="avis">Avis : </label>
+            <textarea
+              id="avis"
+              name="avis"
+              value={avis}
+              onChange={handleChange}
+              required
+            ></textarea>
+          </div>
+          <button type="submit">Envoyer</button>
+        </form>
+      </div>
 
       {/* Affichage des avis */}
       <h2>Avis des utilisateurs</h2>
