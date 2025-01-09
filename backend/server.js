@@ -102,6 +102,126 @@ app.post('/api/contact', (req, res) => {
   });
 });
 
+
+
+app.post('/api/reservation', (req, res) => {
+  const { utilisateur_id, chambre_id, date_debut, date_fin } = req.body;
+
+  if (!utilisateur_id || !chambre_id || !date_debut || !date_fin) {
+    return res.status(400).json({ message: 'Tous les champs sont obligatoires.' });
+  }
+
+  // Vérifier si la chambre est disponible
+  const checkAvailabilitySql = `
+    SELECT * FROM reservations
+    WHERE chambre_id = ?
+    AND (date_debut <= ? AND date_fin >= ?)
+  `;
+
+  db.query(checkAvailabilitySql, [chambre_id, date_fin, date_debut], (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la vérification de la disponibilité :', err);
+      return res.status(500).json({ message: 'Erreur du serveur.' });
+    }
+
+    if (results.length > 0) {
+      return res.status(400).json({ message: 'La chambre n\'est pas disponible pour ces dates.' });
+    }
+
+    // Ajouter la réservation
+    const reservationSql = `
+      INSERT INTO reservations (utilisateur_id, chambre_id, date_debut, date_fin)
+      VALUES (?, ?, ?, ?)
+    `;
+    db.query(reservationSql, [utilisateur_id, chambre_id, date_debut, date_fin], (err, result) => {
+      if (err) {
+        console.error('Erreur lors de l\'ajout de la réservation :', err);
+        return res.status(500).json({ message: 'Erreur du serveur.' });
+      }
+
+      res.status(201).json({ message: 'Réservation réussie.', reservationId: result.insertId });
+    });
+  });
+});
+
+// Route pour récupérer les réservations
+app.get('/reservations', (req, res) => {
+  const sql = `
+    SELECT r.id, r.date_debut, r.date_fin, r.chambre_id, u.pseudo, u.email
+    FROM reservations r
+    JOIN utilisateurs u ON r.utilisateur_id = u.id
+  `;
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des réservations :', err);
+      return res.status(500).json({ message: 'Erreur du serveur.' });
+    }
+    res.json(results);
+  });
+});
+
+app.delete('/reservations/:id', (req, res) => {
+  const { id } = req.params;
+  const sql = 'DELETE FROM reservations WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      console.error('Erreur lors de la suppression de la réservation :', err);
+      return res.status(500).json({ message: 'Erreur du serveur.' });
+    }
+    res.json({ message: 'Réservation supprimée avec succès.' });
+  });
+});
+
+app.delete('/utilisateurs/:id', (req, res) => {
+  const { id } = req.params;
+  const sql = 'DELETE FROM utilisateurs WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      console.error('Erreur lors de la suppression de l\'utilisateur :', err);
+      return res.status(500).json({ message: 'Erreur du serveur.' });
+    }
+    res.json({ message: 'Utilisateur supprimé avec succès.' });
+  });
+});
+
+
+// Route pour récupérer les réservations d'un utilisateur
+app.get('/reservations/:utilisateurId', (req, res) => {
+  const utilisateurId = req.params.utilisateurId;
+  const sql = 'SELECT * FROM reservations WHERE utilisateur_id = ?';
+
+  db.query(sql, [utilisateurId], (err, results) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    res.json(results);
+  });
+});
+
+
+// Route pour mettre à jour les informations de l'utilisateur
+app.put('/utilisateurs/:id', (req, res) => {
+  const { id } = req.params;
+  const { pseudo, email, adresse_postale, telephone } = req.body;
+
+  const sql = `
+    UPDATE utilisateurs
+    SET pseudo = ?, email = ?, adresse_postale = ?, telephone = ?
+    WHERE id = ?
+  `;
+
+  db.query(sql, [pseudo, email, adresse_postale, telephone, id], (err, result) => {
+    if (err) {
+      console.error('Erreur lors de la mise à jour des informations :', err);
+      return res.status(500).json({ message: 'Erreur du serveur.' });
+    }
+    res.json({ message: 'Informations mises à jour avec succès.' });
+  });
+});
+
+
+
+
 // Démarrer le serveur
 const PORT = 5000;
 app.listen(PORT, () => {

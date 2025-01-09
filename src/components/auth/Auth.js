@@ -1,12 +1,14 @@
 import React from 'react';
 import Connexion from '../connexion/connexion';
 import Inscription from '../inscription/inscription';
+import AuthCover from '../assets/auth-cover.jpg'
 import './Auth.css';
 
 function Auth() {
   return (
     <div className="auth-container">
       <div className="auth-box">
+        <img src={AuthCover} alt="Authentification Cover" />
         {/* Section Connexion */}
         <div className="auth-section auth-connexion">
           <h2>Déjà client</h2>

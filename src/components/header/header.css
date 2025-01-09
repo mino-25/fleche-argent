@@ -6,9 +6,8 @@ header {
     align-items: center;
     padding: 1%;
     color: white;
-    background-color: rgba(0, 0, 0, 0.161);
-    font-family: "Cinzel", serif;
-    position: relative;
+    background-color: rgba(0, 0, 0, 0.252);
+    font-family: "Cinzel", serif;   
 }
 
 header a {
@@ -32,7 +31,7 @@ nav ul {
 nav ul a {
     text-decoration: none;
     color: white;
-    font-size: 19px;
+    font-size: 15px;
     font-weight: 500;
     padding: 10px;
 }
@@ -43,6 +42,10 @@ header img {
     display: block; /* Visible uniquement sur PC */
 }
 
+.logo{
+    display: flex;
+    flex-direction: column;
+}
 
 /* Cacher la navbar sur mobile */
 @media (max-width: 768px) {
