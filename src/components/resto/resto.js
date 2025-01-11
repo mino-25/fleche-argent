@@ -1,5 +1,3 @@
-import React from "react";
-import { Link } from "react-router-dom"; // Assurez-vous que le package 'react-router-dom' est installé.
 import "./resto.css";
 import coverImage from "../assets/restaurent.jpg";
 import ambianceImage from "../assets/plat.jpg";
@@ -28,9 +26,9 @@ function Resto() {
   ];
 
   return (
-    <div className="inscription-container">
+    <div className="restaurant">
       {/* Section Header */}
-      <div className="restaurant-header">
+      <header className="restaurant-header">
         <img
           src={coverImage}
           alt="Restaurant de l'hôtel"
@@ -40,7 +38,7 @@ function Resto() {
           <h1>Bienvenue au Restaurant de l'Hôtel</h1>
           <p>Découvrez une expérience gastronomique unique et raffinée.</p>
         </div>
-      </div>
+      </header>
 
       {/* Section Présentation */}
       <section className="about-restaurant">
@@ -66,7 +64,7 @@ function Resto() {
         </div>
 
         <div className="chef">
-          <h2>Rencontrez notre Chef</h2>
+        <h2>Rencontrez notre Chef</h2>
           <img
             src={chefImage}
             alt="Notre chef"
@@ -74,9 +72,9 @@ function Resto() {
           />
           <h2>Adolf MUSSOLINI </h2>
           <p>
-            Le Chef Adolf est passionné par la gastronomie. Avec une expérience de plus de 15 ans dans des restaurants étoilés, il propose une cuisine à la fois créative et respectueuse des traditions culinaires françaises.
-            Son approche met en valeur des produits de saison, soigneusement sélectionnés auprès de producteurs locaux. Il accorde une attention particulière à la présentation de ses plats, alliant esthétisme et saveurs uniques.
-            En perpétuelle quête de perfection, il s’inspire aussi bien des recettes traditionnelles que des techniques modernes pour offrir une expérience culinaire inoubliable à ses convives.
+          Le Chef Adolf est passionné par la gastronomie. Avec une expérience de plus de 15 ans dans des restaurants étoilés, il propose une cuisine à la fois créative et respectueuse des traditions culinaires françaises.
+Son approche met en valeur des produits de saison, soigneusement sélectionnés auprès de producteurs locaux. Il accorde une attention particulière à la présentation de ses plats, alliant esthétisme et saveurs uniques.
+En perpétuelle quête de perfection, il s’inspire aussi bien des recettes traditionnelles que des techniques modernes pour offrir une expérience culinaire inoubliable à ses convives.
           </p>
         </div>
       </section>

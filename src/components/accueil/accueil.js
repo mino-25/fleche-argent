@@ -1,5 +1,4 @@
 import './accueil.css';  
-import { Link } from 'react-router-dom'; // Import du Link pour la navigation
 import Cover from '../assets/hotel.jpg';
 import Room from "../assets/room.jpg";
 import Restaurant from "../assets/restaurent.jpg";
@@ -8,15 +7,7 @@ import Massage from "../assets/massage.jpg";
 function Accueil() {
     return (
         <div className="accueil">
-            {/* Navigation de la version PC */}
-            <div className="pc-nav">
-                <Link to="/">ACCUEIL</Link>
-                <Link to="/chambres">CHAMBRE</Link>
-                <Link to="/restaurant">RESTAURANT</Link>
-                <Link to="/login">LOGIN</Link>
-            </div>
-
-            {/* Contenu principal */}
+            {/* Contenu principal sans la navigation PC */}
             <div className="cover">
                 <img src={Cover} alt="Cover" />
             </div>

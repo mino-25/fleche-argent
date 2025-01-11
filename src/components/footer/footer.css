@@ -36,3 +36,38 @@ footer{
     font-size: 15px;
     font-weight: 500;
 }
+
+@media (max-width: 768px) {
+    @media (max-width: 768px) {
+        footer {
+            flex-direction: column; /* Passe à un agencement vertical */
+            align-items: center; /* Centre les éléments horizontalement */
+            padding: 5%; /* Augmente le padding pour plus d'espace sur mobile */
+        }
+    
+        .footer-link {
+            width: 100%; /* Occupe toute la largeur disponible */
+            align-items: center; /* Aligne au centre */
+            margin-bottom: 20px; /* Ajoute un espace entre les sections */
+        }
+    
+        .footer-link a {
+            font-size: 16px; /* Réduit la taille de la police pour une meilleure lecture */
+        }
+    
+        .footer-logo img {
+            width: 60%; /* Augmente la taille de l'image sur mobile */
+            margin-bottom: 20px; /* Espace entre le logo et le contenu suivant */
+        }
+    
+        .footer-info {
+            align-items: center; /* Centre les éléments pour une meilleure présentation sur mobile */
+            text-align: center; /* Centre le texte */
+        }
+    
+        .footer-info h3 {
+            font-size: 14px; /* Réduit légèrement la taille de la police */
+            margin-bottom: 10px; /* Ajoute un peu d'espace entre les lignes de texte */
+        }
+    }
+}

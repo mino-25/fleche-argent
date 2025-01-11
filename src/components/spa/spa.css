@@ -1,4 +1,5 @@
-/* Global Styling */
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100..900&family=Cinzel:wght@400..900&display=swap');
+
 .spa {
   font-family: 'Arial', sans-serif;
   color: #333;
@@ -6,25 +7,16 @@
 }
 
 .spa-header {
+  position: relative;
   text-align: center;
   color: white;
-  height: 79vh;
 }
 
-.spa-header img{
-  position: absolute;
-  top: 0;
-  left: 0;
+.spa-cover {
   width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-.header-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: 50vh;
+  object-fit: cover;
+  filter: brightness(0.7);
 }
 
 .header-text h1 {
@@ -47,7 +39,6 @@
 
 .presentation {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .presentation-image {
@@ -115,58 +106,71 @@
   color: #666;
 }
   
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
+  .spa-header {
+    height: 40vh; /* Réduit la hauteur de l'en-tête pour les petits écrans */
+  }
 
-    .spa-header img {
-      display: flex;
-      visibility: visible;
-      opacity: 1;
-      margin: 0;
-      padding: 0%;
-      height: 35vh;
-    }
-    
+  .spa-cover {
+    height: 40vh; /* Correspond à la hauteur de l'en-tête */
+  }
 
+  .header-text h1 {
+    font-size: 2rem; /* Réduit la taille du titre pour une meilleure lisibilité */
+  }
 
-    .header-text h1 {
-        font-size:140% ;
-    }
+  .header-text p {
+    font-size: 1rem; /* Réduit la taille du texte pour une meilleure lisibilité */
+  }
 
-    /* Section About Spa */
-    .presentation {
-        flex-direction: column;
-        align-items: center;
-    }
+  .about-spa {
+    flex-direction: column; /* Change la disposition en colonne pour mobile */
+    padding: 10px;
+  }
 
-    .presentation-text {
-        padding: 15px;
-    }
+  .presentation-spa {
+    flex-direction: column; /* Change la disposition en colonne pour mobile */
+  }
 
-    .presentation-text h2 {
-        font-size: 1.6rem;
-    }
+  .presentation-image-spa {
+    width: 100%; /* L'image prend toute la largeur disponible */
+    margin-bottom: 20px; /* Ajoute un peu d'espace sous l'image */
+  }
 
-    /* Section Services */
-    .spa-services h2 {
-        font-size: 1.8rem;
-    }
+  .presentation-text-spa {
+    padding: 0; /* Supprime le padding pour s'adapter aux petits écrans */
+  }
 
-    .services-container {
-        flex-direction: column;
-        align-items: center;
-    }
+  .presentation-text-spa h2 {
+    font-size: 1.5rem; /* Réduit la taille du titre */
+  }
 
-    .service-item {
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
+  .spa-services {
+    padding: 10px;
+  }
 
-    .service-item h3 {
-        font-size: 1.3rem;
-    }
+  .spa-services h2 {
+    font-size: 1.8rem; /* Réduit la taille du titre des services */
+  }
 
-    .service-item p {
-        font-size: 1rem;
-    }
+  .services-container {
+    flex-direction: column; /* Change la disposition en colonne pour mobile */
+  }
+
+  .service-item {
+    max-width: 100%; /* Prend toute la largeur disponible */
+    margin-bottom: 20px; /* Ajoute un espace entre chaque élément de service */
+  }
+
+  .service-image {
+    height: 150px; /* Réduit la hauteur de l'image pour les petits écrans */
+  }
+
+  .service-item h3 {
+    font-size: 1.2rem; /* Réduit la taille du titre de chaque service */
+  }
+
+  .service-item p {
+    font-size: 0.9rem; /* Réduit la taille du texte de chaque service */
+  }
 }
-

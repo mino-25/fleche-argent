@@ -5,17 +5,20 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 50px;
+    height: 81vh;
     font-family: "Cinzel", serif; 
     background-color: rgba(0, 0, 0, 0.211);
   }
   .auth-container img {
     position: absolute;
     width: 100%;
+    height: 100vh;
     top: 0;
     left: 0;
     z-index: -1;
   }
+
+  
   .auth-box {
     display: flex;
     justify-content: space-between;
@@ -25,7 +28,7 @@
   }
   
   .auth-section {
-    width: 45%;
+    width: 25%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -75,4 +78,45 @@
     height: auto;
     margin: 0 20px;
   }
+  
+  @media (max-width: 768px) {
+    .auth-section form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+
+    .auth-connexion {
+        width: 48%; /* Déplacer légèrement vers la gauche en réduisant la largeur */
+        margin-left: -15%; /* Décalage léger vers la gauche */
+    }
+
+    .auth-connexion h1 {
+      width: 50%; /* Déplacer légèrement vers la gauche en réduisant la largeur */
+      margin-left: 10%; /* Décalage léger vers la gauche */
+      
+  }
+
+  .auth-container
+
+    .auth-connexion h2{
+      width: 100%; /* Déplacer légèrement vers la gauche en réduisant la largeur */
+      margin-left: 5%; /* Décalage léger vers la gauche */
+      
+  }
+
+    .auth-container img {
+      height: auto;
+      width: 100%; /* Prend toute la largeur */
+      height: 100vh; /* Hauteur de l'écran pour couvrir toute la zone */
+      object-fit: cover; /* Couvre entièrement la zone sans déformation */
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1; /* L'image en arrière-plan */
+  }
+}
+
   

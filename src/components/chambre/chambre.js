@@ -44,7 +44,7 @@ function Chambre() {
             <div className="room-card" key={index}>
               <img
                 src={room.image}
-                alt={`Image de la chambre ${room.type}`}
+                alt={`Visuel de la chambre ${room.type}`}
                 className="room-image"
               />
               <div className="room-info">

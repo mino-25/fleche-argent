@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./spa.css";
 import coverImage from "../assets/salon.jpg";
 import ambianceImage from "../assets/lit.jpg";
@@ -7,8 +7,6 @@ import massageImage2 from "../assets/pierre.jpg";
 import massageImage3 from "../assets/perso.jpg";
 
 function Spa() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const services = [
     {
       name: "Massage Relaxant",
@@ -27,19 +25,10 @@ function Spa() {
     },
   ];
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
     <div className="spa">
-      {/* Bouton hamburger pour le menu responsive */}
-      <button className="menu-toggle" onClick={toggleMenu}>
-        {isMenuOpen ? "✖" : "☰"}
-      </button>
-
       {/* Menu responsive */}
-      <nav className={`responsive-menu ${isMenuOpen ? "open" : ""}`}>
+      <nav className="responsive-menu">
         <ul>
           <li>
             <a href="/">Accueil</a>
@@ -77,13 +66,13 @@ function Spa() {
 
       {/* Section Présentation */}
       <section className="about-spa">
-        <div className="presentation">
+        <div className="presentation-spa">
           <img
             src={ambianceImage}
             alt="Ambiance du Spa"
-            className="presentation-image"
+            className="presentation-image-spa"
           />
-          <div className="presentation-text">
+          <div className="presentation-text-spa">
             <h2>Notre Salon de Massage</h2>
             <p>
               Situé dans un espace calme et raffiné, notre spa est l'endroit idéal pour

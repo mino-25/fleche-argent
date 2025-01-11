@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 87vh;
+    height: 81vh;
     margin-bottom: 5%;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.249);
@@ -19,6 +19,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    height: 100vh;
     z-index: -1;
   }
   .chambres-header h1 {
@@ -100,53 +101,64 @@
   }
   
 
-/* Adaptation mobile */
-@media (max-width: 768px) {
-  /* Header */
-  .chambres-header {
-    height: 15vh; /* Réduction de la hauteur de l'en-tête */
+  @media (max-width: 768px) {
+    /* Header */
+    .chambres-header {
+      height: 15vh; /* Réduction de la hauteur de l'en-tête */
+    }
+  
+    .chambres-header img {
+      height: 38vh; /* Ajustement de l'image de couverture */
+      object-fit: cover; /* Évite les déformations */
+      width: 100%; /* Assure que l'image occupe toute la largeur */
+    }
+  
+    .chambres-header h1 {
+      font-size: 140%; /* Taille du titre adaptée */
+      text-align: center;
+    }
+  
+    .chambres-header p {
+      font-size: 100%; /* Taille du sous-titre adaptée */
+      text-align: center;
+    }
+  
+    /* Désactiver l'animation */
+    .room-card {
+      padding: 10px; /* Réduction du padding dans les cartes */
+      margin-top: 50px;
+      border-radius: 8px; /* Arrondi des coins */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Légère ombre pour effet visuel */
+      transform: none; /* Désactiver l'effet de zoom */
+      transition: none; /* Supprimer les transitions */
+    }
+  
+    /* Placer les textes au-dessus des images */
+    .room-image {
+      width: 100%;
+      height: auto; /* Ajustement automatique de la hauteur */
+    }
+  
+    .room-info {
+      position: static; /* Replace le texte dans le flux normal */
+      opacity: 1; /* Rend le texte toujours visible */
+      visibility: visible; /* Rend le texte toujours visible */
+      background-color: transparent; /* Supprime le fond semi-transparent */
+      padding: 10px 0; /* Ajoute un espacement pour le texte */
+    }
+  
+    .room-type {
+      font-size: 1.3rem; /* Taille adaptée pour le titre */
+      color: #000; /* Texte noir pour une meilleure lisibilité */
+      text-align: center; /* Centrage du texte */
+      margin-bottom: 5px;
+    }
+  
+    .room-description {
+      font-size: 1rem; /* Taille réduite pour le texte descriptif */
+      color: #000; /* Texte noir pour une meilleure lisibilité */
+      text-align: center; /* Centré pour uniformité */
+      margin: 0; /* Élimine les marges inutiles */
+    }
   }
-
-  .chambres-header img {
-    height: 38vh; /* Ajustement de l'image de couverture */
-    object-fit: cover; /* Évite les déformations */
-    width: 100%; /* Assure que l'image occupe toute la largeur */
-  }
-
-  .chambres-header h1 {
-    font-size: 140%; /* Taille du titre adaptée */
-    text-align: center;
-  }
-
-  .chambres-header p {
-    font-size: 100%; /* Taille du sous-titre adaptée */
-    text-align: center;
-  }
-
-  /* Section des chambres */
-  .rooms-section {
-    padding: 30px 10px; /* Réduction des marges pour plus de compacité */
-  }
-
-  .room-card {
-    padding: 10px; /* Réduction du padding dans les cartes */
-    margin-top: 50px;
-    border-radius: 8px; /* Arrondi des coins */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Légère ombre pour effet visuel */
-  }
-
-
-  .room-type {
-    font-size: 1.3rem; /* Taille adaptée pour le titre */
-    color: #fff; /* Texte clair pour contraste */
-    text-align: center; /* Centrage du texte */
-    margin-bottom: 5px;
-  }
-
-  .room-description {
-    font-size: 1rem; /* Taille réduite pour le texte descriptif */
-    color: #ddd; /* Couleur plus douce pour la lecture */
-    text-align: center; /* Centré pour uniformité */
-    margin: 0; /* Élimine les marges inutiles */
-  }
-}
+  

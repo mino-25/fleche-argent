@@ -4,11 +4,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 15vh;
     padding: 1%;
     color: white;
-    background-color: rgba(0, 0, 0, 0.161);
+    background-color: rgba(0, 0, 0, 0.252);
     font-family: "Cinzel", serif;
-    position: relative;
 }
 
 header a {
@@ -16,8 +16,59 @@ header a {
     color: white;
 }
 
-nav {
-    width: 65%;
+/* Bouton toggle (mobile) */
+.menu-toggle {
+    display: none; /* Caché par défaut, visible seulement sur mobile (défini dans le media query) */
+    position: absolute;
+    top: 5vh; /* Positionné en haut de l'écran */
+    font-size: 150%; /* Taille de l'icône */
+    left: 15px; /* Distance depuis le bord gauche */
+    background: none; /* Pas de fond */
+    border: none; /* Pas de bordure */
+    color: #fff; /* Couleur blanche */
+    z-index: 1001; /* Toujours au-dessus des autres éléments */
+}
+
+.menu-toggle:focus {
+    outline: none; /* Supprime le contour lors du focus */
+}
+
+/* Menu responsive (mobile) */
+.responsive-menu {
+    display: none; /* Caché par défaut */
+    position: fixed; /* Position fixe pour couvrir tout l'écran */
+    top: 0; /* Aligné en haut de l'écran */
+    left: 0; /* Aligné à gauche de l'écran */
+    width: 100%; /* Largeur totale */
+    height: 100%; /* Hauteur totale */
+    background-color: rgba(0, 0, 0, 0.9); /* Fond sombre avec opacité */
+    z-index: 1000; /* Juste en dessous du bouton toggle */
+    padding-top: 25vh; /* Espace en haut pour éviter le chevauchement */
+}
+
+.responsive-menu.open {
+    display: block; /* Affiché lorsque le menu est ouvert */
+}
+
+.responsive-menu ul {
+    list-style: none; /* Supprime les puces des éléments de liste */
+    padding: 0;
+    text-align: center; /* Centre les liens */
+}
+
+.responsive-menu li {
+    margin: 20px 0; /* Espacement entre les éléments */
+}
+
+.responsive-menu a {
+    color: #fff; /* Couleur blanche pour les liens */
+    text-decoration: none; /* Supprime le soulignement */
+    font-size: 1.5rem; /* Taille du texte pour une meilleure lisibilité */
+}
+
+.pc-nav {
+    width: 65%; /* Largeur de la navigation */
+    margin-left: 15%; /* Centrée horizontalement */
     display: flex;
     justify-content: space-between;
 }
@@ -37,129 +88,41 @@ nav ul a {
     padding: 10px;
 }
 
-/* Logo visible uniquement sur PC */
 header img {
-    width: 7%;
+    width: 7%; /* Taille du logo */
     display: block; /* Visible uniquement sur PC */
 }
 
-/* Menu mobile */
-.responsive-menu {
-    display: none; /* Masqué par défaut */
-}
-
-.responsive-menu.open {
-    display: block; /* Affiché lorsque 'open' est activé */
-    background-color: rgba(0, 0, 0, 0.9);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transform: translateX(0);
-    transition: transform 0.3s ease-in-out;
-}
-
-.responsive-menu ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.responsive-menu ul a {
-    padding: 20px;
-    font-size: 24px;
-    text-align: center;
-}
-
-/* Masquer la barre de navigation classique sur mobile */
 @media (max-width: 768px) {
-    /* Masquer la barre de navigation classique sur mobile */
-    nav {
-        display: none;
+    .pc-nav {
+        display: none; /* Cache la navigation pour PC sur mobile */
     }
 
-    /* Masquer le logo sur mobile dans l'en-tête */
+    .menu-toggle {
+        display: block; /* Affiche le bouton toggle sur mobile */
+    }
+
     header img {
-        display: none;
+        display: none; /* Cache le logo pour PC sur mobile */
     }
 
-    /* Afficher le logo mobile dans le menu */
     .logo {
-        display: block; /* Afficher le logo dans le menu */
+        display: block;
         margin-top: 10px;
-        width: 60%; /* Ajuster la taille du logo sur mobile */
-        margin-left: 250%;
-    }
-
-    .logo h3 {
-        display: flex;
-        justify-content: center;
+        width: 60%;
+        margin-left: 25vh;
     }
 
     header {
         display: flex;
-        flex-direction: column;
-        align-items: center;
         justify-content: center;
     }
 
     nav ul {
         display: flex;
-        flex-direction: column;
+        flex-direction: column; /* Les liens sont empilés verticalement */
         align-items: center;
         width: 100%;
     }
 
-    nav ul a {
-        margin: 10px 0;
-        padding: 15px;
-        font-size: 20px;
-        width: 100%;
-        text-align: center;
-    }
-
-    /* Ajouter le bouton hamburger */
-    .hamburger {
-        display: block;
-        font-size: 30px;
-        cursor: pointer;
-        color: white;
-        position: absolute;
-        top: 15px;
-        right: 15px;
-    }
-
-    /* Style du menu lorsque l'état "menu-open" est activé */
-    .menu-open {
-        display: block;
-        background-color: rgba(0, 0, 0, 0.9);
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1000;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transform: translateX(0);
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .menu-open ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .menu-open ul a {
-        padding: 20px;
-        font-size: 24px;
-        text-align: center;
-    }
 }
