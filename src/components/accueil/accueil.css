@@ -64,9 +64,9 @@
 /* Pour le bouton du menu mobile */
 .menu-toggle {
     display: none;
-    position: fixed; /* Fixé pour rester visible lors du défilement */
-    top: 20px;       /* Distance par rapport au haut de l'écran */
-    left: 20px;      /* Distance par rapport au bord gauche */
+    position: fixed;
+    top: 20px;       
+    left: 20px;      
     font-size: 30px;
     background: none;
     border: none;
