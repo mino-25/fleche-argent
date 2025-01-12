@@ -70,9 +70,9 @@ function Resto() {
             alt="Notre chef"
             className="chef-image"
           />
-          <h2>Adolf MUSSOLINI </h2>
+          <h2> Bakari Ndombele </h2>
           <p>
-          Le Chef Adolf est passionné par la gastronomie. Avec une expérience de plus de 15 ans dans des restaurants étoilés, il propose une cuisine à la fois créative et respectueuse des traditions culinaires françaises.
+          Le Chef Bakari est passionné par la gastronomie. Avec une expérience de plus de 15 ans dans des restaurants étoilés, il propose une cuisine à la fois créative et respectueuse des traditions culinaires françaises.
 Son approche met en valeur des produits de saison, soigneusement sélectionnés auprès de producteurs locaux. Il accorde une attention particulière à la présentation de ses plats, alliant esthétisme et saveurs uniques.
 En perpétuelle quête de perfection, il s’inspire aussi bien des recettes traditionnelles que des techniques modernes pour offrir une expérience culinaire inoubliable à ses convives.
           </p>
