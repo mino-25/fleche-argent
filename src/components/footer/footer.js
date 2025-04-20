@@ -12,8 +12,8 @@ function Footer() {
           <Link to="/restaurant">Restaurant</Link>
           <Link to="/massage">Massage</Link>
           <Link to="/contact">Contact</Link>
-          <Link to="/mentions">Mentions Légales</Link>
-          <Link to="/conditions">Conditions de Vente</Link>
+          <Link to="/mentions">Mentions</Link>
+          <Link to="/conditions">Conditions</Link>
         </div>
         <div className="footer-logo">
             <img src={Logo} alt="Logo" />

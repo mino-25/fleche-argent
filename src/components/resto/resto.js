@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"; // Assurez-vous que le package 'react-r
 import "./resto.css";
 import coverImage from "../assets/restaurent.jpg";
 import ambianceImage from "../assets/plat.jpg";
-import chefImage from "../assets/chef.jpg";
+import chefImage from "../assets/ChefPp.jpg";
 import dish1 from "../assets/filet.jpg";
 import dish2 from "../assets/saumon.jpg";
 import dish3 from "../assets/tartelette.jpg";
